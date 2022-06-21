@@ -3,7 +3,7 @@
 
 Our dataset, annotation instructions, dataset documentation and intended uses are published and you can download our dataset from [here](http://tuzhigang.cn/dataset/FADE.html)
 
-![[f7084d1276d38f271771b27442a2a80.png]]
+f7084d1276d38f271771b27442a2a80.png
 
 ## Experiment
 CPU: Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz
