@@ -1,0 +1,2240 @@
+class1_tp43_fp7_fn1
+1880precision is 0.860000
+1880recall is 0.977273
+1880F-measure is 0.914894
+1880TRO is 0.714286
+
+class4_tp17_fp11_fn4
+1413precision is 0.607143
+1413recall is 0.809524
+1413F-measure is 0.693878
+1413TRO is 0.446809
+
+class9_tp2_fp2_fn54
+1012precision is 0.500000
+1012recall is 0.035714
+1012F-measure is 0.066667
+1012TRO is 0.277778
+
+class9_tp19_fp55_fn16
+1049precision is 0.256757
+1049recall is 0.542857
+1049F-measure is 0.348624
+1049TRO is 0.325581
+
+class0_tp22_fp50_fn4
+84precision is 0.305556
+84recall is 0.846154
+84F-measure is 0.448980
+84TRO is 0.216667
+
+class6_tp14_fp5_fn5
+1567precision is 0.736842
+1567recall is 0.736842
+1567F-measure is 0.736842
+1567TRO is 0.425000
+
+class7_tp27_fp20_fn4
+683precision is 0.574468
+683recall is 0.870968
+683F-measure is 0.692308
+683TRO is 0.447761
+
+class2_tp8_fp17_fn6
+541precision is 0.320000
+541recall is 0.571429
+541F-measure is 0.410256
+541TRO is 0.240741
+
+class4_tp12_fp10_fn5
+1402precision is 0.545455
+1402recall is 0.705882
+1402F-measure is 0.615385
+1402TRO is 0.369565
+
+class6_tp16_fp14_fn11
+1281precision is 0.533333
+1281recall is 0.592593
+1281F-measure is 0.561404
+1281TRO is 0.621622
+
+class6_tp21_fp5_fn2
+1547precision is 0.807692
+1547recall is 0.913043
+1547F-measure is 0.857143
+1547TRO is 0.510638
+
+class4_tp4_fp1_fn0
+1648precision is 0.800000
+1648recall is 1.000000
+1648F-measure is 0.888889
+1648TRO is 0.181818
+
+class0_tp30_fp26_fn27
+152precision is 0.535714
+152recall is 0.526316
+152F-measure is 0.530973
+152TRO is 0.622449
+
+class1_tp33_fp17_fn3
+1874precision is 0.660000
+1874recall is 0.916667
+1874F-measure is 0.767442
+1874TRO is 0.634921
+
+class2_tp18_fp11_fn10
+462precision is 0.620690
+462recall is 0.642857
+462F-measure is 0.631579
+462TRO is 0.338462
+
+class0_tp10_fp18_fn8
+113precision is 0.357143
+113recall is 0.555556
+113F-measure is 0.434783
+113TRO is 0.578947
+
+class7_tp27_fp14_fn5
+710precision is 0.658537
+710recall is 0.843750
+710F-measure is 0.739726
+710TRO is 0.551020
+
+class0_tp10_fp21_fn16
+129precision is 0.322581
+129recall is 0.384615
+129F-measure is 0.350877
+129TRO is 0.359375
+
+class8_tp26_fp24_fn98
+758precision is 0.520000
+758recall is 0.209677
+758F-measure is 0.298851
+758TRO is 0.768707
+
+class0_tp23_fp13_fn18
+53precision is 0.638889
+53recall is 0.560976
+53F-measure is 0.597403
+53TRO is 0.482353
+
+class6_tp16_fp13_fn7
+1545precision is 0.551724
+1545recall is 0.695652
+1545F-measure is 0.615385
+1545TRO is 0.478261
+
+class1_tp23_fp4_fn1
+1791precision is 0.851852
+1791recall is 0.958333
+1791F-measure is 0.901961
+1791TRO is 0.511111
+
+class0_tp15_fp19_fn19
+208precision is 0.441176
+208recall is 0.441176
+208F-measure is 0.441176
+208TRO is 0.264368
+
+class0_tp10_fp28_fn24
+141precision is 0.263158
+141recall is 0.294118
+141F-measure is 0.277778
+141TRO is 0.384615
+
+class7_tp71_fp38_fn22
+699precision is 0.651376
+699recall is 0.763441
+699F-measure is 0.702970
+699TRO is 0.574163
+
+class9_tp16_fp4_fn2
+1194precision is 0.800000
+1194recall is 0.888889
+1194F-measure is 0.842105
+1194TRO is 0.428571
+
+class9_tp0_fp0_fn0
+1160precision is 0
+1160recall is 0
+1160F-measure is 0
+1160TRO is 0.000000
+
+class0_tp25_fp5_fn2
+236precision is 0.833333
+236recall is 0.925926
+236F-measure is 0.877193
+236TRO is 0.565789
+
+class4_tp19_fp1_fn2
+1715precision is 0.950000
+1715recall is 0.904762
+1715F-measure is 0.926829
+1715TRO is 0.452381
+
+class7_tp35_fp16_fn18
+647precision is 0.686275
+647recall is 0.660377
+647F-measure is 0.673077
+647TRO is 0.984127
+
+class2_tp11_fp9_fn16
+538precision is 0.550000
+538recall is 0.407407
+538F-measure is 0.468085
+538TRO is 0.456140
+
+class8_tp11_fp9_fn3
+941precision is 0.550000
+941recall is 0.785714
+941F-measure is 0.647059
+941TRO is 0.445652
+
+class2_tp24_fp8_fn9
+470precision is 0.750000
+470recall is 0.727273
+470F-measure is 0.738462
+470TRO is 0.459016
+
+class0_tp12_fp12_fn4
+193precision is 0.500000
+193recall is 0.750000
+193F-measure is 0.600000
+193TRO is 0.438356
+
+class9_tp22_fp13_fn23
+1081precision is 0.628571
+1081recall is 0.488889
+1081F-measure is 0.550000
+1081TRO is 0.547619
+
+class0_tp21_fp12_fn8
+110precision is 0.636364
+110recall is 0.724138
+110F-measure is 0.677419
+110TRO is 0.567568
+
+class9_tp33_fp16_fn8
+1091precision is 0.673469
+1091recall is 0.804878
+1091F-measure is 0.733333
+1091TRO is 0.641026
+
+class9_tp20_fp13_fn21
+1050precision is 0.606061
+1050recall is 0.487805
+1050F-measure is 0.540541
+1050TRO is 0.418605
+
+class2_tp28_fp14_fn7
+523precision is 0.666667
+523recall is 0.800000
+523F-measure is 0.727273
+523TRO is 0.575758
+
+class7_tp12_fp23_fn7
+1456precision is 0.342857
+1456recall is 0.631579
+1456F-measure is 0.444444
+1456TRO is 0.493333
+
+class2_tp15_fp4_fn46
+351precision is 0.789474
+351recall is 0.245902
+351F-measure is 0.375000
+351TRO is 0.756098
+
+class2_tp0_fp13_fn36
+353precision is 0.000000
+353recall is 0.000000
+353F-measure is 0
+353TRO is 0.000000
+
+class9_tp28_fp21_fn12
+1120precision is 0.571429
+1120recall is 0.700000
+1120F-measure is 0.629213
+1120TRO is 0.304348
+
+class9_tp18_fp20_fn18
+1209precision is 0.473684
+1209recall is 0.500000
+1209F-measure is 0.486486
+1209TRO is 0.548387
+
+class8_tp25_fp34_fn25
+805precision is 0.423729
+805recall is 0.500000
+805F-measure is 0.458716
+805TRO is 0.834862
+
+class0_tp20_fp16_fn4
+83precision is 0.555556
+83recall is 0.833333
+83F-measure is 0.666667
+83TRO is 0.512195
+
+class0_tp27_fp11_fn8
+161precision is 0.710526
+161recall is 0.771429
+161F-measure is 0.739726
+161TRO is 0.565789
+
+class1_tp32_fp8_fn4
+1851precision is 0.800000
+1851recall is 0.888889
+1851F-measure is 0.842105
+1851TRO is 0.423077
+
+class2_tp30_fp13_fn20
+385precision is 0.697674
+385recall is 0.600000
+385F-measure is 0.645161
+385TRO is 0.480769
+
+class9_tp22_fp34_fn41
+1038precision is 0.392857
+1038recall is 0.349206
+1038F-measure is 0.369748
+1038TRO is 0.483516
+
+class6_tp3_fp1_fn1
+1566precision is 0.750000
+1566recall is 0.750000
+1566F-measure is 0.750000
+1566TRO is 0.105263
+
+class9_tp70_fp16_fn16
+1001precision is 0.813953
+1001recall is 0.813953
+1001F-measure is 0.813953
+1001TRO is 0.903226
+
+class8_tp7_fp7_fn12
+860precision is 0.500000
+860recall is 0.368421
+860F-measure is 0.424242
+860TRO is 0.242857
+
+class0_tp15_fp4_fn3
+32precision is 0.789474
+32recall is 0.833333
+32F-measure is 0.810811
+32TRO is 1.000000
+
+class1_tp35_fp0_fn2
+1787precision is 1.000000
+1787recall is 0.945946
+1787F-measure is 0.972222
+1787TRO is 0.654545
+
+class6_tp20_fp5_fn34
+1356precision is 0.800000
+1356recall is 0.370370
+1356F-measure is 0.506329
+1356TRO is 0.247312
+
+class1_tp18_fp10_fn10
+1395precision is 0.642857
+1395recall is 0.642857
+1395F-measure is 0.642857
+1395TRO is 0.216867
+
+class8_tp0_fp31_fn101
+751precision is 0.000000
+751recall is 0.000000
+751F-measure is 0
+751TRO is 0.000000
+
+class0_tp28_fp5_fn4
+90precision is 0.848485
+90recall is 0.875000
+90F-measure is 0.861538
+90TRO is 0.477612
+
+class2_tp2_fp12_fn8
+543precision is 0.142857
+543recall is 0.200000
+543F-measure is 0.166667
+543TRO is 0.352941
+
+class9_tp19_fp8_fn6
+1193precision is 0.703704
+1193recall is 0.760000
+1193F-measure is 0.730769
+1193TRO is 0.510204
+
+class7_tp14_fp5_fn5
+1479precision is 0.736842
+1479recall is 0.736842
+1479F-measure is 0.736842
+1479TRO is 0.409091
+
+class2_tp23_fp30_fn43
+336precision is 0.433962
+336recall is 0.348485
+336F-measure is 0.386555
+336TRO is 0.902439
+
+class0_tp25_fp2_fn5
+286precision is 0.925926
+286recall is 0.833333
+286F-measure is 0.877193
+286TRO is 0.500000
+
+class4_tp15_fp5_fn3
+1404precision is 0.750000
+1404recall is 0.833333
+1404F-measure is 0.789474
+1404TRO is 0.365854
+
+class0_tp34_fp5_fn4
+264precision is 0.871795
+264recall is 0.894737
+264F-measure is 0.883117
+264TRO is 0.577465
+
+class6_tp9_fp4_fn2
+1348precision is 0.692308
+1348recall is 0.818182
+1348F-measure is 0.750000
+1348TRO is 0.263158
+
+class0_tp9_fp9_fn7
+209precision is 0.500000
+209recall is 0.562500
+209F-measure is 0.529412
+209TRO is 0.258065
+
+class0_tp15_fp21_fn17
+111precision is 0.416667
+111recall is 0.468750
+111F-measure is 0.441176
+111TRO is 0.620253
+
+class7_tp50_fp63_fn23
+697precision is 0.442478
+697recall is 0.684932
+697F-measure is 0.537634
+697TRO is 0.808511
+
+class2_tp27_fp9_fn19
+387precision is 0.750000
+387recall is 0.586957
+387F-measure is 0.658537
+387TRO is 0.541176
+
+class2_tp5_fp39_fn19
+411precision is 0.113636
+411recall is 0.208333
+411F-measure is 0.147059
+411TRO is 0.242105
+
+class1_tp25_fp14_fn7
+1377precision is 0.641026
+1377recall is 0.781250
+1377F-measure is 0.704225
+1377TRO is 0.509434
+
+class9_tp9_fp41_fn53
+1011precision is 0.180000
+1011recall is 0.145161
+1011F-measure is 0.160714
+1011TRO is 0.773333
+
+class9_tp40_fp11_fn5
+1092precision is 0.784314
+1092recall is 0.888889
+1092F-measure is 0.833333
+1092TRO is 0.670732
+
+class0_tp10_fp16_fn16
+146precision is 0.384615
+146recall is 0.384615
+146F-measure is 0.384615
+146TRO is 0.491525
+
+class0_tp2_fp7_fn13
+217precision is 0.222222
+217recall is 0.133333
+217F-measure is 0.166667
+217TRO is 0.101266
+
+class8_tp28_fp11_fn2
+865precision is 0.717949
+865recall is 0.933333
+865F-measure is 0.811594
+865TRO is 0.453125
+
+class8_tp21_fp10_fn3
+870precision is 0.677419
+870recall is 0.875000
+870F-measure is 0.763636
+870TRO is 0.387097
+
+class2_tp11_fp6_fn5
+496precision is 0.647059
+496recall is 0.687500
+496F-measure is 0.666667
+496TRO is 0.186667
+
+class0_tp0_fp30_fn24
+126precision is 0.000000
+126recall is 0.000000
+126F-measure is 0
+126TRO is 0.000000
+
+class0_tp25_fp6_fn4
+210precision is 0.806452
+210recall is 0.862069
+210F-measure is 0.833333
+210TRO is 0.505747
+
+class2_tp18_fp45_fn16
+390precision is 0.285714
+390recall is 0.529412
+390F-measure is 0.371134
+390TRO is 0.436620
+
+class9_tp32_fp12_fn0
+1075precision is 0.727273
+1075recall is 1.000000
+1075F-measure is 0.842105
+1075TRO is 0.542373
+
+class4_tp4_fp12_fn9
+1440precision is 0.250000
+1440recall is 0.307692
+1440F-measure is 0.275862
+1440TRO is 0.131579
+
+class9_tp24_fp10_fn5
+1182precision is 0.705882
+1182recall is 0.827586
+1182F-measure is 0.761905
+1182TRO is 0.455882
+
+class9_tp5_fp39_fn12
+1006precision is 0.113636
+1006recall is 0.294118
+1006F-measure is 0.163934
+1006TRO is 0.433735
+
+class7_tp30_fp3_fn6
+1521precision is 0.909091
+1521recall is 0.833333
+1521F-measure is 0.869565
+1521TRO is 0.600000
+
+class0_tp7_fp37_fn8
+213precision is 0.159091
+213recall is 0.466667
+213F-measure is 0.237288
+213TRO is 0.539474
+
+class7_tp25_fp7_fn2
+716precision is 0.781250
+716recall is 0.925926
+716F-measure is 0.847458
+716TRO is 0.651163
+
+class0_tp31_fp17_fn16
+156precision is 0.645833
+156recall is 0.659574
+156F-measure is 0.652632
+156TRO is 0.541176
+
+class9_tp35_fp8_fn6
+1069precision is 0.813953
+1069recall is 0.853659
+1069F-measure is 0.833333
+1069TRO is 0.614286
+
+class0_tp19_fp13_fn5
+230precision is 0.593750
+230recall is 0.791667
+230F-measure is 0.678571
+230TRO is 0.555556
+
+class4_tp11_fp13_fn4
+1755precision is 0.458333
+1755recall is 0.733333
+1755F-measure is 0.564103
+1755TRO is 0.367347
+
+class0_tp21_fp7_fn4
+231precision is 0.750000
+231recall is 0.840000
+231F-measure is 0.792453
+231TRO is 0.515625
+
+class8_tp36_fp6_fn8
+784precision is 0.857143
+784recall is 0.818182
+784F-measure is 0.837209
+784TRO is 0.523810
+
+class6_tp0_fp18_fn44
+639precision is 0.000000
+639recall is 0.000000
+639F-measure is 0
+639TRO is 0.000000
+
+class4_tp78_fp21_fn27
+1621precision is 0.787879
+1621recall is 0.742857
+1621F-measure is 0.764706
+1621TRO is 0.760870
+
+class0_tp19_fp34_fn43
+3precision is 0.358491
+3recall is 0.306452
+3F-measure is 0.330435
+3TRO is 0.783505
+
+class8_tp7_fp8_fn71
+746precision is 0.466667
+746recall is 0.089744
+746F-measure is 0.150538
+746TRO is 0.656863
+
+class7_tp36_fp2_fn2
+1271precision is 0.947368
+1271recall is 0.947368
+1271F-measure is 0.947368
+1271TRO is 0.562500
+
+class0_tp38_fp6_fn3
+77precision is 0.863636
+77recall is 0.926829
+77F-measure is 0.894118
+77TRO is 0.518987
+
+class8_tp3_fp9_fn111
+731precision is 0.250000
+731recall is 0.026316
+731F-measure is 0.047619
+731TRO is 0.893939
+
+class7_tp9_fp7_fn9
+1482precision is 0.562500
+1482recall is 0.500000
+1482F-measure is 0.529412
+1482TRO is 0.250000
+
+class8_tp30_fp9_fn7
+982precision is 0.769231
+982recall is 0.810811
+982F-measure is 0.789474
+982TRO is 0.528571
+
+class8_tp37_fp13_fn30
+800precision is 0.740000
+800recall is 0.552239
+800F-measure is 0.632479
+800TRO is 0.688525
+
+class0_tp27_fp21_fn18
+158precision is 0.562500
+158recall is 0.600000
+158F-measure is 0.580645
+158TRO is 0.537634
+
+class9_tp10_fp15_fn12
+1211precision is 0.400000
+1211recall is 0.454545
+1211F-measure is 0.425532
+1211TRO is 0.488889
+
+class6_tp11_fp10_fn5
+1347precision is 0.523810
+1347recall is 0.687500
+1347F-measure is 0.594595
+1347TRO is 0.444444
+
+class9_tp17_fp13_fn3
+1173precision is 0.566667
+1173recall is 0.850000
+1173F-measure is 0.680000
+1173TRO is 0.575000
+
+class7_tp57_fp5_fn5
+1504precision is 0.919355
+1504recall is 0.919355
+1504F-measure is 0.919355
+1504TRO is 0.726190
+
+class2_tp3_fp5_fn5
+502precision is 0.375000
+502recall is 0.375000
+502F-measure is 0.375000
+502TRO is 0.323529
+
+class4_tp11_fp2_fn1
+1638precision is 0.846154
+1638recall is 0.916667
+1638F-measure is 0.880000
+1638TRO is 0.333333
+
+class4_tp16_fp15_fn3
+1727precision is 0.516129
+1727recall is 0.842105
+1727F-measure is 0.640000
+1727TRO is 0.739130
+
+class8_tp59_fp23_fn32
+901precision is 0.719512
+901recall is 0.648352
+901F-measure is 0.682081
+901TRO is 0.745902
+
+class0_tp25_fp15_fn15
+251precision is 0.625000
+251recall is 0.625000
+251F-measure is 0.625000
+251TRO is 0.548780
+
+class8_tp65_fp14_fn16
+841precision is 0.822785
+841recall is 0.802469
+841F-measure is 0.812500
+841TRO is 0.713115
+
+class4_tp33_fp1_fn0
+1698precision is 0.970588
+1698recall is 1.000000
+1698F-measure is 0.985075
+1698TRO is 0.607143
+
+class0_tp20_fp5_fn6
+48precision is 0.800000
+48recall is 0.769231
+48F-measure is 0.784314
+48TRO is 0.390625
+
+class6_tp7_fp3_fn3
+1364precision is 0.700000
+1364recall is 0.700000
+1364F-measure is 0.700000
+1364TRO is 0.290323
+
+class0_tp8_fp4_fn4
+234precision is 0.666667
+234recall is 0.666667
+234F-measure is 0.666667
+234TRO is 0.205128
+
+class7_tp19_fp1_fn30
+657precision is 0.950000
+657recall is 0.387755
+657F-measure is 0.550725
+657TRO is 0.857143
+
+class1_tp31_fp4_fn1
+1400precision is 0.885714
+1400recall is 0.968750
+1400F-measure is 0.925373
+1400TRO is 0.627451
+
+class8_tp27_fp19_fn19
+909precision is 0.586957
+909recall is 0.586957
+909F-measure is 0.586957
+909TRO is 0.385965
+
+class9_tp20_fp13_fn8
+1082precision is 0.606061
+1082recall is 0.714286
+1082F-measure is 0.655738
+1082TRO is 0.323077
+
+class1_tp18_fp13_fn8
+1396precision is 0.580645
+1396recall is 0.692308
+1396F-measure is 0.631579
+1396TRO is 0.469388
+
+class6_tp5_fp2_fn1
+1565precision is 0.714286
+1565recall is 0.833333
+1565F-measure is 0.769231
+1565TRO is 0.233333
+
+class6_tp8_fp6_fn5
+1535precision is 0.571429
+1535recall is 0.615385
+1535F-measure is 0.592593
+1535TRO is 0.361111
+
+class8_tp13_fp7_fn76
+753precision is 0.650000
+753recall is 0.146067
+753F-measure is 0.238532
+753TRO is 0.800000
+
+class0_tp6_fp11_fn1
+26precision is 0.352941
+26recall is 0.857143
+26F-measure is 0.500000
+26TRO is 0.131148
+
+class9_tp16_fp8_fn7
+1187precision is 0.666667
+1187recall is 0.695652
+1187F-measure is 0.680851
+1187TRO is 0.919355
+
+class2_tp24_fp12_fn8
+454precision is 0.666667
+454recall is 0.750000
+454F-measure is 0.705882
+454TRO is 0.406780
+
+class6_tp8_fp17_fn2
+1291precision is 0.320000
+1291recall is 0.800000
+1291F-measure is 0.457143
+1291TRO is 0.294118
+
+class4_tp14_fp11_fn5
+1425precision is 0.560000
+1425recall is 0.736842
+1425F-measure is 0.636364
+1425TRO is 0.386364
+
+class0_tp18_fp11_fn10
+164precision is 0.620690
+164recall is 0.642857
+164F-measure is 0.631579
+164TRO is 0.579545
+
+class4_tp20_fp11_fn3
+1423precision is 0.645161
+1423recall is 0.869565
+1423F-measure is 0.740741
+1423TRO is 0.474576
+
+class0_tp17_fp10_fn2
+242precision is 0.629630
+242recall is 0.894737
+242F-measure is 0.739130
+242TRO is 0.532258
+
+class4_tp19_fp1_fn1
+1711precision is 0.950000
+1711recall is 0.950000
+1711F-measure is 0.950000
+1711TRO is 0.500000
+
+class4_tp15_fp3_fn1
+1660precision is 0.833333
+1660recall is 0.937500
+1660F-measure is 0.882353
+1660TRO is 0.516129
+
+class9_tp3_fp12_fn43
+1013precision is 0.200000
+1013recall is 0.065217
+1013F-measure is 0.098361
+1013TRO is 0.512500
+
+class6_tp21_fp5_fn6
+1582precision is 0.807692
+1582recall is 0.777778
+1582F-measure is 0.792453
+1582TRO is 0.951220
+
+class8_tp49_fp4_fn4
+975precision is 0.924528
+975recall is 0.924528
+975F-measure is 0.924528
+975TRO is 0.611650
+
+class8_tp64_fp13_fn24
+882precision is 0.831169
+882recall is 0.727273
+882F-measure is 0.775758
+882TRO is 0.688525
+
+class0_tp9_fp12_fn8
+199precision is 0.428571
+199recall is 0.529412
+199F-measure is 0.473684
+199TRO is 0.487805
+
+class6_tp11_fp7_fn11
+1563precision is 0.611111
+1563recall is 0.500000
+1563F-measure is 0.550000
+1563TRO is 0.500000
+
+class9_tp25_fp11_fn3
+1163precision is 0.694444
+1163recall is 0.892857
+1163F-measure is 0.781250
+1163TRO is 0.482759
+
+class2_tp22_fp12_fn5
+379precision is 0.647059
+379recall is 0.814815
+379F-measure is 0.721311
+379TRO is 0.421875
+
+class4_tp14_fp2_fn2
+1421precision is 0.875000
+1421recall is 0.875000
+1421F-measure is 0.875000
+1421TRO is 0.386364
+
+class1_tp48_fp11_fn6
+1759precision is 0.813559
+1759recall is 0.888889
+1759F-measure is 0.849558
+1759TRO is 0.670732
+
+class0_tp21_fp8_fn13
+270precision is 0.724138
+270recall is 0.617647
+270F-measure is 0.666667
+270TRO is 0.573529
+
+class8_tp37_fp20_fn7
+844precision is 0.649123
+844recall is 0.840909
+844F-measure is 0.732673
+844TRO is 0.584270
+
+class2_tp19_fp10_fn103
+324precision is 0.655172
+324recall is 0.155738
+324F-measure is 0.251656
+324TRO is 0.601504
+
+class7_tp18_fp13_fn6
+1514precision is 0.580645
+1514recall is 0.750000
+1514F-measure is 0.654545
+1514TRO is 0.385714
+
+class8_tp8_fp16_fn66
+745precision is 0.333333
+745recall is 0.108108
+745F-measure is 0.163265
+745TRO is 0.714286
+
+class1_tp55_fp9_fn0
+1865precision is 0.859375
+1865recall is 1.000000
+1865F-measure is 0.924370
+1865TRO is 0.733333
+
+class1_tp16_fp11_fn8
+1780precision is 0.592593
+1780recall is 0.666667
+1780F-measure is 0.627451
+1780TRO is 0.586957
+
+class4_tp11_fp4_fn7
+1630precision is 0.733333
+1630recall is 0.611111
+1630F-measure is 0.666667
+1630TRO is 0.365854
+
+class9_tp11_fp39_fn47
+1008precision is 0.220000
+1008recall is 0.189655
+1008F-measure is 0.203704
+1008TRO is 0.663866
+
+class0_tp24_fp15_fn2
+96precision is 0.615385
+96recall is 0.923077
+96F-measure is 0.738462
+96TRO is 0.406250
+
+class0_tp19_fp15_fn7
+281precision is 0.558824
+281recall is 0.730769
+281F-measure is 0.633333
+281TRO is 0.518519
+
+class7_tp30_fp25_fn15
+698precision is 0.545455
+698recall is 0.666667
+698F-measure is 0.600000
+698TRO is 0.608696
+
+class2_tp9_fp5_fn70
+342precision is 0.642857
+342recall is 0.113924
+342F-measure is 0.193548
+342TRO is 0.559322
+
+class1_tp49_fp15_fn0
+1833precision is 0.765625
+1833recall is 1.000000
+1833F-measure is 0.867257
+1833TRO is 0.704225
+
+class8_tp37_fp36_fn91
+757precision is 0.506849
+757recall is 0.289062
+757F-measure is 0.368159
+757TRO is 0.882759
+
+class0_tp31_fp22_fn21
+55precision is 0.584906
+55recall is 0.596154
+55F-measure is 0.590476
+55TRO is 0.541667
+
+class6_tp16_fp2_fn1
+1360precision is 0.888889
+1360recall is 0.941176
+1360F-measure is 0.914286
+1360TRO is 0.400000
+
+class7_tp13_fp9_fn1
+1467precision is 0.590909
+1467recall is 0.928571
+1467F-measure is 0.722222
+1467TRO is 0.437500
+
+class8_tp40_fp6_fn4
+964precision is 0.869565
+964recall is 0.909091
+964F-measure is 0.888889
+964TRO is 0.597222
+
+class7_tp10_fp8_fn14
+1517precision is 0.555556
+1517recall is 0.416667
+1517F-measure is 0.476190
+1517TRO is 0.659091
+
+class2_tp27_fp10_fn9
+522precision is 0.729730
+522recall is 0.750000
+522F-measure is 0.739726
+522TRO is 0.516129
+
+class1_tp35_fp5_fn0
+1872precision is 0.875000
+1872recall is 1.000000
+1872F-measure is 0.933333
+1872TRO is 0.603175
+
+class4_tp1_fp1_fn1
+1641precision is 0.500000
+1641recall is 0.500000
+1641F-measure is 0.500000
+1641TRO is 0.033333
+
+class0_tp22_fp13_fn2
+238precision is 0.628571
+238recall is 0.916667
+238F-measure is 0.745763
+238TRO is 0.606061
+
+class2_tp8_fp10_fn11
+544precision is 0.444444
+544recall is 0.421053
+544F-measure is 0.432432
+544TRO is 0.482759
+
+class0_tp1_fp27_fn25
+142precision is 0.035714
+142recall is 0.038462
+142F-measure is 0.037037
+142TRO is 0.132353
+
+class1_tp21_fp8_fn7
+1392precision is 0.724138
+1392recall is 0.750000
+1392F-measure is 0.736842
+1392TRO is 0.518519
+
+class0_tp5_fp14_fn4
+17precision is 0.263158
+17recall is 0.555556
+17F-measure is 0.357143
+17TRO is 0.407407
+
+class1_tp33_fp3_fn0
+1840precision is 0.916667
+1840recall is 1.000000
+1840F-measure is 0.956522
+1840TRO is 0.568966
+
+class4_tp31_fp61_fn64
+570precision is 0.336957
+570recall is 0.326316
+570F-measure is 0.331551
+570TRO is 0.990099
+
+class7_tp12_fp8_fn5
+1464precision is 0.600000
+1464recall is 0.705882
+1464F-measure is 0.648649
+1464TRO is 0.306122
+
+class1_tp30_fp1_fn2
+1814precision is 0.967742
+1814recall is 0.937500
+1814F-measure is 0.952381
+1814TRO is 0.526316
+
+class7_tp7_fp11_fn10
+688precision is 0.388889
+688recall is 0.411765
+688F-measure is 0.400000
+688TRO is 0.487805
+
+class7_tp10_fp47_fn21
+1503precision is 0.175439
+1503recall is 0.322581
+1503F-measure is 0.227273
+1503TRO is 0.626866
+
+class4_tp50_fp20_fn24
+573precision is 0.714286
+573recall is 0.675676
+573F-measure is 0.694444
+573TRO is 0.959459
+
+class7_tp32_fp6_fn36
+648precision is 0.842105
+648recall is 0.470588
+648F-measure is 0.603774
+648TRO is 0.835443
+
+class9_tp1_fp37_fn140
+1055precision is 0.026316
+1055recall is 0.007092
+1055F-measure is 0.011173
+1055TRO is 0.744681
+
+class2_tp18_fp108_fn5
+377precision is 0.142857
+377recall is 0.782609
+377F-measure is 0.241611
+377TRO is 0.318182
+
+class2_tp6_fp21_fn4
+489precision is 0.222222
+489recall is 0.600000
+489F-measure is 0.324324
+489TRO is 0.513514
+
+class2_tp19_fp16_fn21
+388precision is 0.542857
+388recall is 0.475000
+388F-measure is 0.506667
+388TRO is 0.487805
+
+class8_tp12_fp6_fn8
+989precision is 0.666667
+989recall is 0.600000
+989F-measure is 0.631579
+989TRO is 0.471698
+
+class6_tp22_fp4_fn1
+1340precision is 0.846154
+1340recall is 0.956522
+1340F-measure is 0.897959
+1340TRO is 0.682540
+
+class1_tp23_fp2_fn1
+1811precision is 0.920000
+1811recall is 0.958333
+1811F-measure is 0.938776
+1811TRO is 0.469388
+
+class6_tp11_fp7_fn2
+1349precision is 0.611111
+1349recall is 0.846154
+1349F-measure is 0.709677
+1349TRO is 0.416667
+
+class6_tp20_fp7_fn6
+1541precision is 0.740741
+1541recall is 0.769231
+1541F-measure is 0.754717
+1541TRO is 0.489796
+
+class6_tp5_fp6_fn2
+1336precision is 0.454545
+1336recall is 0.714286
+1336F-measure is 0.555556
+1336TRO is 0.200000
+
+class8_tp30_fp7_fn8
+936precision is 0.810811
+936recall is 0.789474
+936F-measure is 0.800000
+936TRO is 0.639175
+
+class8_tp49_fp4_fn3
+958precision is 0.924528
+958recall is 0.942308
+958F-measure is 0.933333
+958TRO is 0.678571
+
+class7_tp41_fp29_fn5
+711precision is 0.585714
+711recall is 0.891304
+711F-measure is 0.706897
+711TRO is 0.740000
+
+class0_tp15_fp4_fn7
+274precision is 0.789474
+274recall is 0.681818
+274F-measure is 0.731707
+274TRO is 0.305085
+
+class2_tp22_fp8_fn11
+459precision is 0.733333
+459recall is 0.666667
+459F-measure is 0.698413
+459TRO is 0.361111
+
+class2_tp13_fp19_fn17
+539precision is 0.406250
+539recall is 0.433333
+539F-measure is 0.419355
+539TRO is 0.537037
+
+class1_tp18_fp4_fn3
+1845precision is 0.818182
+1845recall is 0.857143
+1845F-measure is 0.837209
+1845TRO is 0.446809
+
+class9_tp9_fp19_fn18
+1208precision is 0.321429
+1208recall is 0.333333
+1208F-measure is 0.327273
+1208TRO is 0.500000
+
+class0_tp8_fp11_fn9
+218precision is 0.421053
+218recall is 0.470588
+218F-measure is 0.444444
+218TRO is 0.253333
+
+class7_tp15_fp4_fn2
+1451precision is 0.789474
+1451recall is 0.882353
+1451F-measure is 0.833333
+1451TRO is 0.333333
+
+class0_tp9_fp19_fn29
+25precision is 0.321429
+25recall is 0.236842
+25F-measure is 0.272727
+25TRO is 0.850000
+
+class9_tp37_fp21_fn17
+1200precision is 0.637931
+1200recall is 0.685185
+1200F-measure is 0.660714
+1200TRO is 0.534653
+
+class1_tp8_fp3_fn4
+1379precision is 0.727273
+1379recall is 0.666667
+1379F-measure is 0.695652
+1379TRO is 0.333333
+
+class1_tp27_fp4_fn0
+1818precision is 0.870968
+1818recall is 1.000000
+1818F-measure is 0.931034
+1818TRO is 0.583333
+
+class8_tp6_fp4_fn13
+933precision is 0.600000
+933recall is 0.315789
+933F-measure is 0.413793
+933TRO is 0.450000
+
+class4_tp0_fp0_fn0
+1422precision is 0
+1422recall is 0
+1422F-measure is 0
+1422TRO is 0.000000
+
+class1_tp24_fp1_fn0
+1815precision is 0.960000
+1815recall is 1.000000
+1815F-measure is 0.979592
+1815TRO is 0.444444
+
+class2_tp17_fp11_fn0
+511precision is 0.607143
+511recall is 1.000000
+511F-measure is 0.755556
+511TRO is 0.518987
+
+class8_tp25_fp12_fn1
+976precision is 0.675676
+976recall is 0.961538
+976F-measure is 0.793651
+976TRO is 0.527273
+
+class6_tp17_fp6_fn3
+1337precision is 0.739130
+1337recall is 0.850000
+1337F-measure is 0.790698
+1337TRO is 0.487179
+
+class2_tp14_fp4_fn7
+364precision is 0.777778
+364recall is 0.666667
+364F-measure is 0.717949
+364TRO is 0.718750
+
+class0_tp21_fp11_fn1
+78precision is 0.656250
+78recall is 0.954545
+78F-measure is 0.777778
+78TRO is 0.407407
+
+class9_tp24_fp93_fn78
+1015precision is 0.205128
+1015recall is 0.235294
+1015F-measure is 0.219178
+1015TRO is 0.896226
+
+class8_tp24_fp8_fn12
+947precision is 0.750000
+947recall is 0.666667
+947F-measure is 0.705882
+947TRO is 0.603448
+
+class6_tp17_fp7_fn3
+1317precision is 0.708333
+1317recall is 0.850000
+1317F-measure is 0.772727
+1317TRO is 0.441860
+
+class0_tp6_fp18_fn17
+66precision is 0.250000
+66recall is 0.260870
+66F-measure is 0.255319
+66TRO is 0.218750
+
+class7_tp28_fp3_fn17
+664precision is 0.903226
+664recall is 0.622222
+664F-measure is 0.736842
+664TRO is 1.000000
+
+class7_tp12_fp6_fn5
+1239precision is 0.666667
+1239recall is 0.705882
+1239F-measure is 0.685714
+1239TRO is 0.428571
+
+class9_tp28_fp13_fn3
+1129precision is 0.682927
+1129recall is 0.903226
+1129F-measure is 0.777778
+1129TRO is 0.468750
+
+class1_tp40_fp11_fn1
+1864precision is 0.784314
+1864recall is 0.975610
+1864F-measure is 0.869565
+1864TRO is 0.656250
+
+class6_tp23_fp10_fn4
+1550precision is 0.696970
+1550recall is 0.851852
+1550F-measure is 0.766667
+1550TRO is 0.529412
+
+class8_tp10_fp20_fn64
+747precision is 0.333333
+747recall is 0.135135
+747F-measure is 0.192308
+747TRO is 0.500000
+
+class1_tp30_fp18_fn3
+1768precision is 0.625000
+1768recall is 0.909091
+1768F-measure is 0.740741
+1768TRO is 0.544118
+
+class7_tp24_fp3_fn2
+1261precision is 0.888889
+1261recall is 0.923077
+1261F-measure is 0.905660
+1261TRO is 0.577778
+
+class6_tp3_fp7_fn1
+1614precision is 0.300000
+1614recall is 0.750000
+1614F-measure is 0.428571
+1614TRO is 0.117647
+
+class4_tp27_fp1_fn0
+1670precision is 0.964286
+1670recall is 1.000000
+1670F-measure is 0.981818
+1670TRO is 0.562500
+
+class2_tp25_fp32_fn129
+339precision is 0.438596
+339recall is 0.162338
+339F-measure is 0.236967
+339TRO is 0.662500
+
+class0_tp7_fp9_fn8
+219precision is 0.437500
+219recall is 0.466667
+219F-measure is 0.451613
+219TRO is 0.565217
+
+class2_tp27_fp22_fn8
+406precision is 0.551020
+406recall is 0.771429
+406F-measure is 0.642857
+406TRO is 0.357143
+
+class7_tp20_fp12_fn38
+671precision is 0.625000
+671recall is 0.344828
+671F-measure is 0.444444
+671TRO is 0.855556
+
+class0_tp10_fp22_fn28
+135precision is 0.312500
+135recall is 0.263158
+135F-measure is 0.285714
+135TRO is 0.479452
+
+class4_tp12_fp1_fn1
+1743precision is 0.923077
+1743recall is 0.923077
+1743F-measure is 0.923077
+1743TRO is 0.348837
+
+class2_tp19_fp9_fn15
+433precision is 0.678571
+433recall is 0.558824
+433F-measure is 0.612903
+433TRO is 0.390625
+
+class2_tp18_fp9_fn4
+497precision is 0.666667
+497recall is 0.818182
+497F-measure is 0.734694
+497TRO is 0.530864
+
+class2_tp14_fp19_fn11
+395precision is 0.424242
+395recall is 0.560000
+395F-measure is 0.482759
+395TRO is 0.378788
+
+class7_tp31_fp3_fn3
+1231precision is 0.911765
+1231recall is 0.911765
+1231F-measure is 0.911765
+1231TRO is 0.500000
+
+class6_tp20_fp2_fn3
+1551precision is 0.909091
+1551recall is 0.869565
+1551F-measure is 0.888889
+1551TRO is 0.488372
+
+class9_tp21_fp5_fn7
+1205precision is 0.807692
+1205recall is 0.750000
+1205F-measure is 0.777778
+1205TRO is 0.500000
+
+class9_tp29_fp15_fn0
+1076precision is 0.659091
+1076recall is 1.000000
+1076F-measure is 0.794521
+1076TRO is 0.577465
+
+class8_tp24_fp19_fn13
+863precision is 0.558140
+863recall is 0.648649
+863F-measure is 0.600000
+863TRO is 0.552239
+
+class1_tp38_fp11_fn7
+1389precision is 0.775510
+1389recall is 0.844444
+1389F-measure is 0.808511
+1389TRO is 0.588235
+
+class0_tp12_fp17_fn8
+241precision is 0.413793
+241recall is 0.600000
+241F-measure is 0.489796
+241TRO is 0.417582
+
+class2_tp0_fp11_fn115
+316precision is 0.000000
+316recall is 0.000000
+316F-measure is 0
+316TRO is 0.000000
+
+class9_tp20_fp26_fn28
+1058precision is 0.434783
+1058recall is 0.416667
+1058F-measure is 0.425532
+1058TRO is 0.559140
+
+class8_tp15_fp17_fn16
+926precision is 0.468750
+926recall is 0.483871
+926F-measure is 0.476190
+926TRO is 0.639535
+
+class7_tp7_fp30_fn22
+1487precision is 0.189189
+1487recall is 0.241379
+1487F-measure is 0.212121
+1487TRO is 0.248555
+
+class0_tp22_fp16_fn7
+82precision is 0.578947
+82recall is 0.758621
+82F-measure is 0.656716
+82TRO is 0.386667
+
+class8_tp19_fp124_fn31
+803precision is 0.132867
+803recall is 0.380000
+803F-measure is 0.196891
+803TRO is 0.543689
+
+class9_tp7_fp5_fn6
+1206precision is 0.583333
+1206recall is 0.538462
+1206F-measure is 0.560000
+1206TRO is 0.260870
+
+class2_tp8_fp4_fn1
+555precision is 0.666667
+555recall is 0.888889
+555F-measure is 0.761905
+555TRO is 0.710526
+
+class1_tp22_fp4_fn3
+1826precision is 0.846154
+1826recall is 0.880000
+1826F-measure is 0.862745
+1826TRO is 0.481481
+
+class6_tp0_fp16_fn1
+1619precision is 0.000000
+1619recall is 0.000000
+1619F-measure is 0
+1619TRO is 0.000000
+
+class0_tp9_fp8_fn13
+130precision is 0.529412
+130recall is 0.409091
+130F-measure is 0.461538
+130TRO is 0.329412
+
+class9_tp10_fp55_fn66
+1042precision is 0.153846
+1042recall is 0.131579
+1042F-measure is 0.141844
+1042TRO is 0.559322
+
+class8_tp26_fp14_fn4
+994precision is 0.650000
+994recall is 0.866667
+994F-measure is 0.742857
+994TRO is 0.578125
+
+class9_tp17_fp101_fn25
+1003precision is 0.144068
+1003recall is 0.404762
+1003F-measure is 0.212500
+1003TRO is 0.653465
+
+class9_tp12_fp6_fn2
+1166precision is 0.666667
+1166recall is 0.857143
+1166F-measure is 0.750000
+1166TRO is 0.351351
+
+class8_tp54_fp30_fn29
+887precision is 0.642857
+887recall is 0.650602
+887F-measure is 0.646707
+887TRO is 0.714286
+
+class0_tp2_fp3_fn8
+116precision is 0.400000
+116recall is 0.200000
+116F-measure is 0.266667
+116TRO is 0.328358
+
+class9_tp8_fp30_fn76
+1018precision is 0.210526
+1018recall is 0.095238
+1018F-measure is 0.131148
+1018TRO is 0.247059
+
+class8_tp20_fp14_fn2
+779precision is 0.588235
+779recall is 0.909091
+779F-measure is 0.714286
+779TRO is 0.385965
+
+class4_tp21_fp0_fn1
+1704precision is 1.000000
+1704recall is 0.954545
+1704F-measure is 0.976744
+1704TRO is 0.500000
+
+class4_tp41_fp4_fn9
+563precision is 0.911111
+563recall is 0.820000
+563F-measure is 0.863158
+563TRO is 1.000000
+
+class0_tp27_fp12_fn7
+63precision is 0.692308
+63recall is 0.794118
+63F-measure is 0.739726
+63TRO is 0.330097
+
+class7_tp18_fp12_fn15
+1495precision is 0.600000
+1495recall is 0.545455
+1495F-measure is 0.571429
+1495TRO is 0.453125
+
+class0_tp40_fp19_fn2
+87precision is 0.677966
+87recall is 0.952381
+87F-measure is 0.792079
+87TRO is 0.545455
+
+class2_tp17_fp13_fn11
+474precision is 0.566667
+474recall is 0.607143
+474F-measure is 0.586207
+474TRO is 0.606742
+
+class8_tp19_fp15_fn22
+802precision is 0.558824
+802recall is 0.463415
+802F-measure is 0.506667
+802TRO is 0.380531
+
+class0_tp2_fp5_fn22
+19precision is 0.285714
+19recall is 0.083333
+19F-measure is 0.129032
+19TRO is 0.011111
+
+class4_tp0_fp0_fn0
+1448precision is 0
+1448recall is 0
+1448F-measure is 0
+1448TRO is 0.000000
+
+class0_tp9_fp3_fn5
+159precision is 0.750000
+159recall is 0.642857
+159F-measure is 0.692308
+159TRO is 0.540541
+
+class0_tp9_fp5_fn7
+131precision is 0.642857
+131recall is 0.562500
+131F-measure is 0.600000
+131TRO is 0.241935
+
+class0_tp35_fp17_fn17
+157precision is 0.673077
+157recall is 0.673077
+157F-measure is 0.673077
+157TRO is 0.588235
+
+class1_tp36_fp0_fn1
+1875precision is 1.000000
+1875recall is 0.972973
+1875F-measure is 0.986301
+1875TRO is 0.610169
+
+class8_tp22_fp12_fn11
+991precision is 0.647059
+991recall is 0.666667
+991F-measure is 0.656716
+991TRO is 0.582090
+
+class0_tp8_fp5_fn6
+215precision is 0.615385
+215recall is 0.571429
+215F-measure is 0.592593
+215TRO is 0.132353
+
+class8_tp11_fp10_fn11
+818precision is 0.523810
+818recall is 0.500000
+818F-measure is 0.511628
+818TRO is 0.217391
+
+class9_tp8_fp8_fn6
+1213precision is 0.500000
+1213recall is 0.571429
+1213F-measure is 0.533333
+1213TRO is 0.368421
+
+class8_tp21_fp37_fn124
+729precision is 0.362069
+729recall is 0.144828
+729F-measure is 0.206897
+729TRO is 0.865079
+
+class6_tp11_fp9_fn5
+1335precision is 0.550000
+1335recall is 0.687500
+1335F-measure is 0.611111
+1335TRO is 0.435897
+
+class6_tp1_fp2_fn36
+636precision is 0.333333
+636recall is 0.027027
+636F-measure is 0.050000
+636TRO is 0.602740
+
+class2_tp3_fp18_fn5
+493precision is 0.142857
+493recall is 0.375000
+493F-measure is 0.206897
+493TRO is 0.358025
+
+class2_tp20_fp17_fn1
+427precision is 0.540541
+427recall is 0.952381
+427F-measure is 0.689655
+427TRO is 0.396226
+
+class0_tp4_fp18_fn16
+206precision is 0.181818
+206recall is 0.200000
+206F-measure is 0.190476
+206TRO is 0.300000
+
+class0_tp2_fp14_fn4
+22precision is 0.125000
+22recall is 0.333333
+22F-measure is 0.181818
+22TRO is 0.052632
+
+class7_tp29_fp21_fn10
+705precision is 0.580000
+705recall is 0.743590
+705F-measure is 0.651685
+705TRO is 0.695238
+
+class6_tp17_fp25_fn30
+1361precision is 0.404762
+1361recall is 0.361702
+1361F-measure is 0.382022
+1361TRO is 0.556962
+
+class6_tp3_fp17_fn0
+1288precision is 0.150000
+1288recall is 1.000000
+1288F-measure is 0.260870
+1288TRO is 0.068182
+
+class4_tp10_fp1_fn2
+1672precision is 0.909091
+1672recall is 0.833333
+1672F-measure is 0.869565
+1672TRO is 0.366667
+
+class7_tp36_fp3_fn11
+678precision is 0.923077
+678recall is 0.765957
+678F-measure is 0.837209
+678TRO is 0.518987
+
+class1_tp18_fp1_fn1
+1862precision is 0.947368
+1862recall is 0.947368
+1862F-measure is 0.947368
+1862TRO is 0.461538
+
+class8_tp18_fp28_fn5
+985precision is 0.391304
+985recall is 0.782609
+985F-measure is 0.521739
+985TRO is 0.476190
+
+class9_tp23_fp26_fn28
+1035precision is 0.469388
+1035recall is 0.450980
+1035F-measure is 0.460000
+1035TRO is 0.546512
+
+class8_tp0_fp5_fn10
+935precision is 0.000000
+935recall is 0.000000
+935F-measure is 0
+935TRO is 0.000000
+
+class9_tp39_fp9_fn7
+1067precision is 0.812500
+1067recall is 0.847826
+1067F-measure is 0.829787
+1067TRO is 0.534884
+
+class4_tp23_fp2_fn1
+1430precision is 0.920000
+1430recall is 0.958333
+1430F-measure is 0.938776
+1430TRO is 0.383333
+
+class0_tp48_fp46_fn11
+293precision is 0.510638
+293recall is 0.813559
+293F-measure is 0.627451
+293TRO is 0.846154
+
+class7_tp20_fp43_fn21
+1497precision is 0.317460
+1497recall is 0.487805
+1497F-measure is 0.384615
+1497TRO is 0.696078
+
+class2_tp21_fp14_fn6
+382precision is 0.600000
+382recall is 0.777778
+382F-measure is 0.677419
+382TRO is 0.320988
+
+class7_tp18_fp17_fn2
+1513precision is 0.514286
+1513recall is 0.900000
+1513F-measure is 0.654545
+1513TRO is 0.491228
+
+class0_tp19_fp74_fn95
+9precision is 0.204301
+9recall is 0.166667
+9F-measure is 0.183575
+9TRO is 0.977273
+
+class2_tp4_fp12_fn3
+480precision is 0.250000
+480recall is 0.571429
+480F-measure is 0.347826
+480TRO is 0.323529
+
+class1_tp39_fp4_fn2
+1795precision is 0.906977
+1795recall is 0.951220
+1795F-measure is 0.928571
+1795TRO is 0.706897
+
+class1_tp36_fp2_fn0
+1866precision is 0.947368
+1866recall is 1.000000
+1866F-measure is 0.972973
+1866TRO is 0.631579
+
+class1_tp15_fp9_fn0
+1772precision is 0.625000
+1772recall is 1.000000
+1772F-measure is 0.769231
+1772TRO is 0.553571
+
+class4_tp25_fp1_fn0
+1713precision is 0.961538
+1713recall is 1.000000
+1713F-measure is 0.980392
+1713TRO is 0.543478
+
+class2_tp5_fp1_fn8
+360precision is 0.833333
+360recall is 0.384615
+360F-measure is 0.526316
+360TRO is 0.586207
+
+class0_tp12_fp45_fn23
+144precision is 0.210526
+144recall is 0.342857
+144F-measure is 0.260870
+144TRO is 0.434783
+
+class9_tp5_fp1_fn0
+1191precision is 0.833333
+1191recall is 1.000000
+1191F-measure is 0.909091
+1191TRO is 0.161290
+
+class7_tp34_fp5_fn3
+1245precision is 0.871795
+1245recall is 0.918919
+1245F-measure is 0.894737
+1245TRO is 0.637931
+
+class2_tp42_fp11_fn5
+524precision is 0.792453
+524recall is 0.893617
+524F-measure is 0.840000
+524TRO is 0.608108
+
+class8_tp25_fp17_fn44
+828precision is 0.595238
+828recall is 0.362319
+828F-measure is 0.450450
+828TRO is 0.654545
+
+class8_tp37_fp21_fn27
+814precision is 0.637931
+814recall is 0.578125
+814F-measure is 0.606557
+814TRO is 0.681159
+
+class8_tp35_fp29_fn4
+954precision is 0.546875
+954recall is 0.897436
+954F-measure is 0.679612
+954TRO is 0.646154
+
+class2_tp18_fp13_fn13
+518precision is 0.580645
+518recall is 0.580645
+518F-measure is 0.580645
+518TRO is 0.636364
+
+class2_tp5_fp13_fn5
+446precision is 0.277778
+446recall is 0.500000
+446F-measure is 0.357143
+446TRO is 0.177215
+
+class4_tp14_fp15_fn5
+1740precision is 0.482759
+1740recall is 0.736842
+1740F-measure is 0.583333
+1740TRO is 0.323077
+
+class4_tp13_fp3_fn4
+1695precision is 0.812500
+1695recall is 0.764706
+1695F-measure is 0.787879
+1695TRO is 0.470588
+
+class4_tp14_fp2_fn2
+1671precision is 0.875000
+1671recall is 0.875000
+1671F-measure is 0.875000
+1671TRO is 0.432432
+
+class8_tp41_fp4_fn5
+773precision is 0.911111
+773recall is 0.891304
+773F-measure is 0.901099
+773TRO is 0.494505
+
+class8_tp8_fp3_fn7
+988precision is 0.727273
+988recall is 0.533333
+988F-measure is 0.615385
+988TRO is 0.625000
+
+class2_tp8_fp16_fn1
+556precision is 0.333333
+556recall is 0.888889
+556F-measure is 0.484848
+556TRO is 0.346154
+
+class2_tp24_fp9_fn1
+426precision is 0.727273
+426recall is 0.960000
+426F-measure is 0.827586
+426TRO is 0.567568
+
+class2_tp29_fp19_fn20
+370precision is 0.604167
+370recall is 0.591837
+370F-measure is 0.597938
+370TRO is 0.555556
+
+class9_tp16_fp8_fn2
+1168precision is 0.666667
+1168recall is 0.888889
+1168F-measure is 0.761905
+1168TRO is 0.363636
+
+class8_tp21_fp7_fn14
+942precision is 0.750000
+942recall is 0.600000
+942F-measure is 0.666667
+942TRO is 0.535211
+
+class0_tp0_fp18_fn11
+198precision is 0.000000
+198recall is 0.000000
+198F-measure is 0
+198TRO is 0.000000
+
+class2_tp26_fp19_fn26
+368precision is 0.577778
+368recall is 0.500000
+368F-measure is 0.536082
+368TRO is 0.527473
+
+class1_tp24_fp3_fn0
+1810precision is 0.888889
+1810recall is 1.000000
+1810F-measure is 0.941176
+1810TRO is 0.568182
+
+class4_tp25_fp2_fn2
+1678precision is 0.925926
+1678recall is 0.925926
+1678F-measure is 0.925926
+1678TRO is 0.586957
+
+class2_tp13_fp20_fn13
+431precision is 0.393939
+431recall is 0.500000
+431F-measure is 0.440678
+431TRO is 0.416667
+
+class8_tp25_fp9_fn22
+775precision is 0.735294
+775recall is 0.531915
+775F-measure is 0.617284
+775TRO is 0.352381
+
+class8_tp5_fp7_fn15
+859precision is 0.416667
+859recall is 0.250000
+859F-measure is 0.312500
+859TRO is 0.161290
+
+class2_tp13_fp4_fn9
+533precision is 0.764706
+533recall is 0.590909
+533F-measure is 0.666667
+533TRO is 0.350877
+
+class8_tp33_fp36_fn81
+759precision is 0.478261
+759recall is 0.289474
+759F-measure is 0.360656
+759TRO is 0.673913
+
+class7_tp24_fp13_fn2
+1255precision is 0.648649
+1255recall is 0.923077
+1255F-measure is 0.761905
+1255TRO is 0.557692
+
+class4_tp19_fp5_fn2
+1427precision is 0.791667
+1427recall is 0.904762
+1427F-measure is 0.844444
+1427TRO is 0.420000
+
+class0_tp0_fp0_fn7
+24precision is 0
+24recall is 0.000000
+24F-measure is 0
+24TRO is 0.000000
+
+class8_tp52_fp20_fn50
+762precision is 0.722222
+762recall is 0.509804
+762F-measure is 0.597701
+762TRO is 0.951456
+
+class4_tp23_fp2_fn3
+1749precision is 0.920000
+1749recall is 0.884615
+1749F-measure is 0.901961
+1749TRO is 0.490566
+
+class8_tp28_fp16_fn15
+842precision is 0.636364
+842recall is 0.651163
+842F-measure is 0.643678
+842TRO is 0.422680
+
+class8_tp21_fp13_fn104
+726precision is 0.617647
+726recall is 0.168000
+726F-measure is 0.264151
+726TRO is 0.846154
+
+class4_tp15_fp5_fn6
+1739precision is 0.750000
+1739recall is 0.714286
+1739F-measure is 0.731707
+1739TRO is 0.500000
+
+class6_tp25_fp2_fn2
+1338precision is 0.925926
+1338recall is 0.925926
+1338F-measure is 0.925926
+1338TRO is 0.579710
+
+class2_tp93_fp64_fn48
+310precision is 0.592357
+310recall is 0.659574
+310F-measure is 0.624161
+310TRO is 0.915254
+
+class8_tp26_fp10_fn5
+965precision is 0.722222
+965recall is 0.838710
+965F-measure is 0.776119
+965TRO is 0.491803
+
+class8_tp57_fp17_fn46
+896precision is 0.770270
+896recall is 0.553398
+896F-measure is 0.644068
+896TRO is 0.642384
+
+class6_tp12_fp9_fn10
+1375precision is 0.571429
+1375recall is 0.545455
+1375F-measure is 0.558140
+1375TRO is 0.388889
+
+class2_tp3_fp1_fn87
+325precision is 0.750000
+325recall is 0.033333
+325F-measure is 0.063830
+325TRO is 0.320000
+
+class4_tp13_fp3_fn0
+1719precision is 0.812500
+1719recall is 1.000000
+1719F-measure is 0.896552
+1719TRO is 0.306122
+
+class2_tp75_fp24_fn153
+314precision is 0.757576
+314recall is 0.328947
+314F-measure is 0.458716
+314TRO is 0.838843
+
+class7_tp25_fp5_fn5
+1509precision is 0.833333
+1509recall is 0.833333
+1509F-measure is 0.833333
+1509TRO is 0.475410
+
+class1_tp9_fp13_fn1
+1779precision is 0.409091
+1779recall is 0.900000
+1779F-measure is 0.562500
+1779TRO is 0.511628
+
+class7_tp28_fp28_fn8
+1468precision is 0.500000
+1468recall is 0.777778
+1468F-measure is 0.608696
+1468TRO is 0.556962
+
+class0_tp8_fp12_fn5
+235precision is 0.400000
+235recall is 0.615385
+235F-measure is 0.484848
+235TRO is 0.247191
+
+class0_tp32_fp23_fn25
+45precision is 0.581818
+45recall is 0.561404
+45F-measure is 0.571429
+45TRO is 0.549020
+
+MOG2:precision is 0.590666
+MOG2:recall is 0.568451
+MOG2:F-measure is 0.579345
+MOG2:tro is 0.491443
+MOG2:fps is 5.074600
+
+MOG2:[0][0]precision of is 0.509960
+MOG2:[0][1]precision of is 0.805415
+MOG2:[0][2]precision of is 0.526002
+MOG2:[0][3]precision of is 0.000000
+MOG2:[0][4]precision of is 0.731707
+MOG2:[0][5]precision of is 0.000000
+MOG2:[0][6]precision of is 0.608359
+MOG2:[0][7]precision of is 0.626807
+MOG2:[0][8]precision of is 0.610619
+MOG2:[0][9]precision of is 0.476464
+MOG2:[0][10]precision of is 0.000000
+MOG2:[0][11]precision of is 0.000000
+MOG2:[0][12]precision of is 0.000000
+MOG2:[0][13]precision of is 0.000000
+MOG2:[0][14]precision of is 0.000000
+MOG2:[0][15]precision of is 0.000000
+MOG2:[0][16]precision of is 0.000000
+MOG2:[0][0]recall of is 0.574277
+MOG2:[0][1]recall of is 0.916266
+MOG2:[0][2]recall of is 0.440363
+MOG2:[0][3]recall of is 0.000000
+MOG2:[0][4]recall of is 0.771812
+MOG2:[0][5]recall of is 0.000000
+MOG2:[0][6]recall of is 0.612150
+MOG2:[0][7]recall of is 0.695842
+MOG2:[0][8]recall of is 0.469692
+MOG2:[0][9]recall of is 0.471591
+MOG2:[0][10]recall of is 0.000000
+MOG2:[0][11]recall of is 0.000000
+MOG2:[0][12]recall of is 0.000000
+MOG2:[0][13]recall of is 0.000000
+MOG2:[0][14]recall of is 0.000000
+MOG2:[0][15]recall of is 0.000000
+MOG2:[0][16]recall of is 0.000000
+MOG2:[0][0]F-measure of is 0.540211
+MOG2:[0][1]F-measure of is 0.857271
+MOG2:[0][2]F-measure of is 0.479388
+MOG2:[0][3]F-measure of is 0.000000
+MOG2:[0][4]F-measure of is 0.751225
+MOG2:[0][5]F-measure of is 0.000000
+MOG2:[0][6]F-measure of is 0.610248
+MOG2:[0][7]F-measure of is 0.659523
+MOG2:[0][8]F-measure of is 0.530964
+MOG2:[0][9]F-measure of is 0.474015
+MOG2:[0][10]F-measure of is 0.000000
+MOG2:[0][11]F-measure of is 0.000000
+MOG2:[0][12]F-measure of is 0.000000
+MOG2:[0][13]F-measure of is 0.000000
+MOG2:[0][14]F-measure of is 0.000000
+MOG2:[0][15]F-measure of is 0.000000
+MOG2:[0][16]F-measure of is 0.000000
+MOG2:[0][0]tro of is 0.435450
+MOG2:[0][1]tro of is 0.553462
+MOG2:[0][2]tro of is 0.464499
+MOG2:[0][3]tro of is 0.000000
+MOG2:[0][4]tro of is 0.448718
+MOG2:[0][5]tro of is 0.000000
+MOG2:[0][6]tro of is 0.394114
+MOG2:[0][7]tro of is 0.579702
+MOG2:[0][8]tro of is 0.566030
+MOG2:[0][9]tro of is 0.504009
+MOG2:[0][10]tro of is 0.000000
+MOG2:[0][11]tro of is 0.000000
+MOG2:[0][12]tro of is 0.000000
+MOG2:[0][13]tro of is 0.000000
+MOG2:[0][14]tro of is 0.000000
+MOG2:[0][15]tro of is 0.000000
+MOG2:[0][16]tro of is 0.000000

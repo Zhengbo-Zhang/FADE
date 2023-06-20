@@ -1,0 +1,92 @@
+class0_tp20_fp2_fn2
+95precision is 0.909091
+95recall is 0.909091
+95F-measure is 0.909091
+95TRO is 0.379310
+
+class4_tp48_fp1_fn3
+568precision is 0.979592
+568recall is 0.941176
+568F-measure is 0.960000
+568TRO is 1.000000
+
+class8_tp39_fp3_fn5
+784precision is 0.928571
+784recall is 0.886364
+784F-measure is 0.906977
+784TRO is 0.523810
+
+MOG2:precision is 0.946903
+MOG2:recall is 0.914530
+MOG2:F-measure is 0.930435
+MOG2:tro is 0.634373
+MOG2:fps is 3.323897
+
+MOG2:[0][0]precision of is 0.909091
+MOG2:[0][1]precision of is 0.000000
+MOG2:[0][2]precision of is 0.000000
+MOG2:[0][3]precision of is 0.000000
+MOG2:[0][4]precision of is 0.979592
+MOG2:[0][5]precision of is 0.000000
+MOG2:[0][6]precision of is 0.000000
+MOG2:[0][7]precision of is 0.000000
+MOG2:[0][8]precision of is 0.928571
+MOG2:[0][9]precision of is 0.000000
+MOG2:[0][10]precision of is 0.000000
+MOG2:[0][11]precision of is 0.000000
+MOG2:[0][12]precision of is 0.000000
+MOG2:[0][13]precision of is 0.000000
+MOG2:[0][14]precision of is 0.000000
+MOG2:[0][15]precision of is 0.000000
+MOG2:[0][16]precision of is 0.000000
+MOG2:[0][0]recall of is 0.909091
+MOG2:[0][1]recall of is 0.000000
+MOG2:[0][2]recall of is 0.000000
+MOG2:[0][3]recall of is 0.000000
+MOG2:[0][4]recall of is 0.941176
+MOG2:[0][5]recall of is 0.000000
+MOG2:[0][6]recall of is 0.000000
+MOG2:[0][7]recall of is 0.000000
+MOG2:[0][8]recall of is 0.886364
+MOG2:[0][9]recall of is 0.000000
+MOG2:[0][10]recall of is 0.000000
+MOG2:[0][11]recall of is 0.000000
+MOG2:[0][12]recall of is 0.000000
+MOG2:[0][13]recall of is 0.000000
+MOG2:[0][14]recall of is 0.000000
+MOG2:[0][15]recall of is 0.000000
+MOG2:[0][16]recall of is 0.000000
+MOG2:[0][0]F-measure of is 0.909091
+MOG2:[0][1]F-measure of is 0.000000
+MOG2:[0][2]F-measure of is 0.000000
+MOG2:[0][3]F-measure of is 0.000000
+MOG2:[0][4]F-measure of is 0.960000
+MOG2:[0][5]F-measure of is 0.000000
+MOG2:[0][6]F-measure of is 0.000000
+MOG2:[0][7]F-measure of is 0.000000
+MOG2:[0][8]F-measure of is 0.906977
+MOG2:[0][9]F-measure of is 0.000000
+MOG2:[0][10]F-measure of is 0.000000
+MOG2:[0][11]F-measure of is 0.000000
+MOG2:[0][12]F-measure of is 0.000000
+MOG2:[0][13]F-measure of is 0.000000
+MOG2:[0][14]F-measure of is 0.000000
+MOG2:[0][15]F-measure of is 0.000000
+MOG2:[0][16]F-measure of is 0.000000
+MOG2:[0][0]tro of is 0.379310
+MOG2:[0][1]tro of is 0.000000
+MOG2:[0][2]tro of is 0.000000
+MOG2:[0][3]tro of is 0.000000
+MOG2:[0][4]tro of is 1.000000
+MOG2:[0][5]tro of is 0.000000
+MOG2:[0][6]tro of is 0.000000
+MOG2:[0][7]tro of is 0.000000
+MOG2:[0][8]tro of is 0.523810
+MOG2:[0][9]tro of is 0.000000
+MOG2:[0][10]tro of is 0.000000
+MOG2:[0][11]tro of is 0.000000
+MOG2:[0][12]tro of is 0.000000
+MOG2:[0][13]tro of is 0.000000
+MOG2:[0][14]tro of is 0.000000
+MOG2:[0][15]tro of is 0.000000
+MOG2:[0][16]tro of is 0.000000
