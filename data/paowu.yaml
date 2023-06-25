@@ -1,0 +1,17 @@
+# cigarette smoking dataset
+# Train command: python train.py --data smoke.yaml
+# Default dataset location is next to /yolov5:
+#   /parent_folder
+#     /smoke
+#     /yolov5
+
+
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+train: ./dataset/train.txt # 4372 images
+val: ./dataset/test.txt  # 486 images
+
+# number of classes
+nc: 1
+
+# class names
+names: [ 'paowu' ]
