@@ -4,6 +4,17 @@ Our dataset, annotation instructions, dataset documentation and intended uses ar
 
 ![image](https://github.com/Zhengbo-Zhang/FADE/blob/880d81df366ee71df1d55ccc3473c926bd85c2b0/f7084d1276d38f271771b27442a2a80.png)
 
+### how to train
+1. download the dataset from [here](http://tuzhigang.cn/dataset/FADE.html)
+2. unzip the dataset and put it in the `dataset` folder
+3. run `python train.py` to train the model with the default parameters defined in train.py. the method is as same as original yolov5 method. you can also change the parameters by yourself.
+
+### how to test
+
+1. create a file named `test.txt`, and put the path of the test videos in it
+2. run `python test.py --val test.txt`
+3. the results will be saved in the `video` folder
+
 ## Experiment
 CPU: Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz
 GPU: GeForce RTX 3090

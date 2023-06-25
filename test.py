@@ -1,345 +1,531 @@
-import argparse
-import json
-import os
-from pathlib import Path
-from threading import Thread
-
+import cv2 as cv
 import numpy as np
+import os
+import sys
+import xml.dom.minidom as xmldom
+import argparse
+from nms import py_cpu_nms
+import time as T
+import re
+import linecache
+import matplotlib.pyplot as plt
+from utils.torch_utils import select_device, time_sync
+from models.common import DetectMultiBackend
+from util import plot_one_box, cal_iou, xyxy_to_xywh, xywh_to_xyxy, updata_trace_list, draw_trace
+from utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadStreams
+from utils.general import (LOGGER, check_file, check_img_size, check_imshow, check_requirements, colorstr, cv2,
+                           increment_path, non_max_suppression, print_args, scale_coords, strip_optimizer, xyxy2xywh)
+from utils.plots import Annotator, colors, save_one_box
+from utils.augmentations import Albumentations, augment_hsv, copy_paste, letterbox, mixup, random_perspective
+from utils.general import (DATASETS_DIR, LOGGER, NUM_THREADS, check_dataset, check_requirements, check_yaml, clean_str,
+                           cv2, is_colab, is_kaggle, segments2boxes, xyn2xy, xywh2xyxy, xywhn2xyxy, xyxy2xywhn)
+from utils.torch_utils import torch_distributed_zero_first
+from pathlib import Path
+import ipdb
+
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[0]  # YOLOv5 root directory
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+
 import torch
-import yaml
-from tqdm import tqdm
+import torch.backends.cudnn as cudnn
 
-from models.experimental import attempt_load
-from utils.datasets import create_dataloader
-from utils.general import coco80_to_coco91_class, check_dataset, check_file, check_img_size, check_requirements, \
-    box_iou, non_max_suppression, scale_coords, xyxy2xywh, xywh2xyxy, set_logging, increment_path, colorstr
-from utils.metrics import ap_per_class, ConfusionMatrix
-from utils.plots import plot_images, output_to_target, plot_study_txt
-from utils.torch_utils import select_device, time_synchronized
+parser = argparse.ArgumentParser(
+    description=
+    'This program shows how to use background subtraction methods provided by OpenCV. You can process both videos and images.'
+)
+
+parser.add_argument('--video',
+                    type=str,
+                    help='video address',
+                    default="/mnt/data2/gaokongdataset/video/")
+parser.add_argument('--trainortest',
+                    type=str,
+                    default="test")
+
+parser.add_argument('--dataset',
+                    type=str,
+                    help='picture and annotation',
+                    default="/mnt/data2/gaokongdataset/dataset/")
+
+parser.add_argument('--val',
+                    type=str,
+                    help='input video',
+                    default="/mnt/data2/gaokongdataset/dataslipt/iccv-visual.txt")
+
+parser.add_argument('--scene',
+                    type=str,
+                    default="/mnt/data2/gaokongdataset/new_GT/scene.txt")
+
+parser.add_argument('--Class',
+                    type=str,
+                    default="/mnt/data2/gaokongdataset/new_GT/class.txt")
+
+parser.add_argument('--time',
+                    type=str,
+                    help='beginning and ending',
+                    default="/mnt/data2/gaokongdataset/tro.txt")
+
+parser.add_argument('--light',
+                    type=str,
+                    default="/mnt/data2/gaokongdataset/new_GT/light.txt")
+
+parser.add_argument('--resolution',
+                    type=str,
+                    default="/mnt/data2/gaokongdataset/new_GT/resolution.txt")
+
+parser.add_argument('--weather',
+                    type=str,
+                    default="/mnt/data2/gaokongdataset/new_GT/weather.txt")
+
+parser.add_argument('--algo',
+                    type=str,
+                    help='Background subtraction method (KNN, MOG2).',
+                    default='MOG2')
+
+parser.add_argument('--result_txt',
+                    type=str,
+                    help="output address",
+                    default="/mnt/data1/ghh/kalman-filter-in-single-object-tracking-main/class_my_yolo_f_b-0.3-10-last-timetest.txt")
+
+parser.add_argument('--slice_height_num',
+                    type=int,
+                    default="2")
+
+parser.add_argument('--slice_width_num',
+                    type=int,
+                    default="2") 
+
+parser.add_argument('--ratio_overlap',
+                    type=float,
+                    default="0.2")                                       
+
+parser.add_argument('--min_thre',
+                    type=float,
+                    default="0.2")     
+
+parser.add_argument('--max_thre',
+                    type=float,
+                    default="0.2")
+                        
+args = parser.parse_args()
+
+def calculate(bound, mask):
+
+    x, y, w, h = bound
+
+    area = mask[y:y + h, x:x + w]
+
+    pos = area > 0 + 0
+
+    score = np.sum(pos) / (w * h)
+
+    return score
 
 
-def test(data,
-         weights=None,
-         batch_size=32,
-         imgsz=640,
-         conf_thres=0.001,
-         iou_thres=0.6,  # for NMS
-         save_json=False,
-         single_cls=False,
-         augment=False,
-         verbose=False,
-         model=None,
-         dataloader=None,
-         save_dir=Path(''),  # for saving images
-         save_txt=False,  # for auto-labelling
-         save_hybrid=False,  # for hybrid auto-labelling
-         save_conf=False,  # save auto-label confidences
-         plots=True,
-         wandb_logger=None,
-         compute_loss=None,
-         half_precision=True,
-         is_coco=False):
-    # Initialize/load model and set device
-    training = model is not None
-    if training:  # called by train.py
-        device = next(model.parameters()).device  # get model device
+def nms_cnts(cnts, mask, min_area):
 
-    else:  # called directly
-        set_logging()
-        device = select_device(opt.device, batch_size=batch_size)
+    bounds = [cv.boundingRect(c) for c in cnts if cv.contourArea(c) > min_area]
 
-        # Directories
-        save_dir = Path(increment_path(Path(opt.project) / opt.name, exist_ok=opt.exist_ok))  # increment run
-        (save_dir / 'labels' if save_txt else save_dir).mkdir(parents=True, exist_ok=True)  # make dir
+    if len(bounds) == 0:
+        return []
 
-        # Load model
-        model = attempt_load(weights, map_location=device)  # load FP32 model
-        gs = max(int(model.stride.max()), 32)  # grid size (max stride)
-        imgsz = check_img_size(imgsz, s=gs)  # check img_size
+    scores = [calculate(b, mask) for b in bounds]
 
-        # Multi-GPU disabled, incompatible with .half() https://github.com/ultralytics/yolov5/issues/99
-        # if device.type != 'cpu' and torch.cuda.device_count() > 1:
-        #     model = nn.DataParallel(model)
+    bounds = np.array(bounds)
 
-    # Half
-    half = device.type != 'cpu' and half_precision  # half precision only supported on CUDA
-    if half:
-        model.half()
+    scores = np.expand_dims(np.array(scores), axis=-1)
+    scores = np.array(scores)
 
-    # Configure
-    model.eval()
-    if isinstance(data, str):
-        is_coco = data.endswith('coco.yaml')
-        with open(data) as f:
-            data = yaml.load(f, Loader=yaml.SafeLoader)
-    check_dataset(data)  # check
-    nc = 1 if single_cls else int(data['nc'])  # number of classes
-    iouv = torch.linspace(0.5, 0.95, 10).to(device)  # iou vector for mAP@0.5:0.95
-    niou = iouv.numel()
+    keep = py_cpu_nms(np.hstack([bounds, scores]), 0.3)
 
-    # Logging
-    log_imgs = 0
-    if wandb_logger and wandb_logger.wandb:
-        log_imgs = min(wandb_logger.log_imgs, 100)
-    # Dataloader
-    if not training:
-        if device.type != 'cpu':
-            model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(next(model.parameters())))  # run once
-        task = opt.task if opt.task in ('train', 'val', 'test') else 'val'  # path to train/val/test images
-        dataloader = create_dataloader(data[task], imgsz, batch_size, gs, opt, pad=0.5, rect=True,
-                                       prefix=colorstr(f'{task}: '))[0]
+    return bounds[keep]
 
-    seen = 0
-    confusion_matrix = ConfusionMatrix(nc=nc)
-    names = {k: v for k, v in enumerate(model.names if hasattr(model, 'names') else model.module.names)}
-    coco91class = coco80_to_coco91_class()
-    s = ('%20s' + '%12s' * 6) % ('Class', 'Images', 'Labels', 'P', 'R', 'mAP@.5', 'mAP@.5:.95')
-    p, r, f1, mp, mr, map50, map, t0, t1 = 0., 0., 0., 0., 0., 0., 0., 0., 0.
-    loss = torch.zeros(3, device=device)
-    jdict, stats, ap, ap_class, wandb_images = [], [], [], [], []
-    for batch_i, (img, targets, paths, shapes) in enumerate(tqdm(dataloader, desc=s)):
-        img = img.to(device, non_blocking=True)
-        img = img.half() if half else img.float()  # uint8 to fp16/32
-        img /= 255.0  # 0 - 255 to 0.0 - 1.0
-        targets = targets.to(device)
-        nb, _, height, width = img.shape  # batch size, channels, height, width
 
-        with torch.no_grad():
-            # Run model
-            t = time_synchronized()
-            out, train_out = model(img, augment=augment)  # inference and training outputs
-            t0 += time_synchronized() - t
+#input formal[xmin, ymin, xmax, ymax]
+# boxA是真值
+def IOU(boxA, boxB):
+    boxA = [int(x) for x in boxA]
+    boxB = [int(x) for x in boxB]
 
-            # Compute loss
-            if compute_loss:
-                loss += compute_loss([x.float() for x in train_out], targets)[1][:3]  # box, obj, cls
+    xA = max(boxA[0], boxB[0])
+    yA = max(boxA[1], boxB[1])
+    xB = min(boxA[2], boxB[2])
+    yB = min(boxA[3], boxB[3])
 
-            # Run NMS
-            targets[:, 2:] *= torch.Tensor([width, height, width, height]).to(device)  # to pixels
-            lb = [targets[targets[:, 0] == i, 1:] for i in range(nb)] if save_hybrid else []  # for autolabelling
-            t = time_synchronized()
-            out = non_max_suppression(out, conf_thres=conf_thres, iou_thres=iou_thres, labels=lb, multi_label=True)
-            t1 += time_synchronized() - t
+    interArea = max(0, xB - xA) * max(0, yB - yA)
 
-        # Statistics per image
-        for si, pred in enumerate(out):
-            labels = targets[targets[:, 0] == si, 1:]
-            nl = len(labels)
-            tcls = labels[:, 0].tolist() if nl else []  # target class
-            path = Path(paths[si])
-            seen += 1
-
-            if len(pred) == 0:
-                if nl:
-                    stats.append((torch.zeros(0, niou, dtype=torch.bool), torch.Tensor(), torch.Tensor(), tcls))
-                continue
-
-            # Predictions
-            predn = pred.clone()
-            scale_coords(img[si].shape[1:], predn[:, :4], shapes[si][0], shapes[si][1])  # native-space pred
-
-            # Append to text file
-            if save_txt:
-                gn = torch.tensor(shapes[si][0])[[1, 0, 1, 0]]  # normalization gain whwh
-                for *xyxy, conf, cls in predn.tolist():
-                    xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
-                    line = (cls, *xywh, conf) if save_conf else (cls, *xywh)  # label format
-                    with open(save_dir / 'labels' / (path.stem + '.txt'), 'a') as f:
-                        f.write(('%g ' * len(line)).rstrip() % line + '\n')
-
-            # W&B logging - Media Panel Plots
-            if len(wandb_images) < log_imgs and wandb_logger.current_epoch > 0:  # Check for test operation
-                if wandb_logger.current_epoch % wandb_logger.bbox_interval == 0:
-                    box_data = [{"position": {"minX": xyxy[0], "minY": xyxy[1], "maxX": xyxy[2], "maxY": xyxy[3]},
-                                 "class_id": int(cls),
-                                 "box_caption": "%s %.3f" % (names[cls], conf),
-                                 "scores": {"class_score": conf},
-                                 "domain": "pixel"} for *xyxy, conf, cls in pred.tolist()]
-                    boxes = {"predictions": {"box_data": box_data, "class_labels": names}}  # inference-space
-                    wandb_images.append(wandb_logger.wandb.Image(img[si], boxes=boxes, caption=path.name))
-            wandb_logger.log_training_progress(predn, path, names) if wandb_logger and wandb_logger.wandb_run else None
-
-            # Append to pycocotools JSON dictionary
-            if save_json:
-                # [{"image_id": 42, "category_id": 18, "bbox": [258.15, 41.29, 348.26, 243.78], "score": 0.236}, ...
-                image_id = int(path.stem) if path.stem.isnumeric() else path.stem
-                box = xyxy2xywh(predn[:, :4])  # xywh
-                box[:, :2] -= box[:, 2:] / 2  # xy center to top-left corner
-                for p, b in zip(pred.tolist(), box.tolist()):
-                    jdict.append({'image_id': image_id,
-                                  'category_id': coco91class[int(p[5])] if is_coco else int(p[5]),
-                                  'bbox': [round(x, 3) for x in b],
-                                  'score': round(p[4], 5)})
-
-            # Assign all predictions as incorrect
-            correct = torch.zeros(pred.shape[0], niou, dtype=torch.bool, device=device)
-            if nl:
-                detected = []  # target indices
-                tcls_tensor = labels[:, 0]
-
-                # target boxes
-                tbox = xywh2xyxy(labels[:, 1:5])
-                scale_coords(img[si].shape[1:], tbox, shapes[si][0], shapes[si][1])  # native-space labels
-                if plots:
-                    confusion_matrix.process_batch(predn, torch.cat((labels[:, 0:1], tbox), 1))
-
-                # Per target class
-                for cls in torch.unique(tcls_tensor):
-                    ti = (cls == tcls_tensor).nonzero(as_tuple=False).view(-1)  # prediction indices
-                    pi = (cls == pred[:, 5]).nonzero(as_tuple=False).view(-1)  # target indices
-
-                    # Search for detections
-                    if pi.shape[0]:
-                        # Prediction to target ious
-                        ious, i = box_iou(predn[pi, :4], tbox[ti]).max(1)  # best ious, indices
-
-                        # Append detections
-                        detected_set = set()
-                        for j in (ious > iouv[0]).nonzero(as_tuple=False):
-                            d = ti[i[j]]  # detected target
-                            if d.item() not in detected_set:
-                                detected_set.add(d.item())
-                                detected.append(d)
-                                correct[pi[j]] = ious[j] > iouv  # iou_thres is 1xn
-                                if len(detected) == nl:  # all targets already located in image
-                                    break
-
-            # Append statistics (correct, conf, pcls, tcls)
-            stats.append((correct.cpu(), pred[:, 4].cpu(), pred[:, 5].cpu(), tcls))
-
-        # Plot images
-        if plots and batch_i < 3:
-            f = save_dir / f'test_batch{batch_i}_labels.jpg'  # labels
-            Thread(target=plot_images, args=(img, targets, paths, f, names), daemon=True).start()
-            f = save_dir / f'test_batch{batch_i}_pred.jpg'  # predictions
-            Thread(target=plot_images, args=(img, output_to_target(out), paths, f, names), daemon=True).start()
-
-    # Compute statistics
-    stats = [np.concatenate(x, 0) for x in zip(*stats)]  # to numpy
-    if len(stats) and stats[0].any():
-        p, r, ap, f1, ap_class = ap_per_class(*stats, plot=plots, save_dir=save_dir, names=names)
-        ap50, ap = ap[:, 0], ap.mean(1)  # AP@0.5, AP@0.5:0.95
-        mp, mr, map50, map = p.mean(), r.mean(), ap50.mean(), ap.mean()
-        nt = np.bincount(stats[3].astype(np.int64), minlength=nc)  # number of targets per class
+    boxAArea = (boxA[2] - boxA[0]) * (boxA[3] - boxA[1])
+    boxBArea = (boxB[2] - boxB[0]) * (boxB[3] - boxB[1])
+    if (boxAArea + boxBArea - interArea)==0:
+        return 0
     else:
-        nt = torch.zeros(1)
+        iou = interArea / float(boxAArea + boxBArea - interArea)
 
-    # Print results
-    pf = '%20s' + '%12i' * 2 + '%12.3g' * 4  # print format
-    print(pf % ('all', seen, nt.sum(), mp, mr, map50, map))
-
-    # Print results per class
-    if (verbose or (nc < 50 and not training)) and nc > 1 and len(stats):
-        for i, c in enumerate(ap_class):
-            print(pf % (names[c], seen, nt[c], p[i], r[i], ap50[i], ap[i]))
-
-    # Print speeds
-    t = tuple(x / seen * 1E3 for x in (t0, t1, t0 + t1)) + (imgsz, imgsz, batch_size)  # tuple
-    if not training:
-        print('Speed: %.1f/%.1f/%.1f ms inference/NMS/total per %gx%g image at batch-size %g' % t)
-
-    # Plots
-    if plots:
-        confusion_matrix.plot(save_dir=save_dir, names=list(names.values()))
-        if wandb_logger and wandb_logger.wandb:
-            val_batches = [wandb_logger.wandb.Image(str(f), caption=f.name) for f in sorted(save_dir.glob('test*.jpg'))]
-            wandb_logger.log({"Validation": val_batches})
-    if wandb_images:
-        wandb_logger.log({"Bounding Box Debugger/Images": wandb_images})
-
-    # Save JSON
-    if save_json and len(jdict):
-        w = Path(weights[0] if isinstance(weights, list) else weights).stem if weights is not None else ''  # weights
-        anno_json = '../coco/annotations/instances_val2017.json'  # annotations json
-        pred_json = str(save_dir / f"{w}_predictions.json")  # predictions json
-        print('\nEvaluating pycocotools mAP... saving %s...' % pred_json)
-        with open(pred_json, 'w') as f:
-            json.dump(jdict, f)
-
-        try:  # https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocoEvalDemo.ipynb
-            from pycocotools.coco import COCO
-            from pycocotools.cocoeval import COCOeval
-
-            anno = COCO(anno_json)  # init annotations api
-            pred = anno.loadRes(pred_json)  # init predictions api
-            eval = COCOeval(anno, pred, 'bbox')
-            if is_coco:
-                eval.params.imgIds = [int(Path(x).stem) for x in dataloader.dataset.img_files]  # image IDs to evaluate
-            eval.evaluate()
-            eval.accumulate()
-            eval.summarize()
-            map, map50 = eval.stats[:2]  # update results (mAP@0.5:0.95, mAP@0.5)
-        except Exception as e:
-            print(f'pycocotools unable to run: {e}')
-
-    # Return results
-    model.float()  # for training
-    if not training:
-        s = f"\n{len(list(save_dir.glob('labels/*.txt')))} labels saved to {save_dir / 'labels'}" if save_txt else ''
-        print(f"Results saved to {save_dir}{s}")
-    maps = np.zeros(nc) + map
-    for i, c in enumerate(ap_class):
-        maps[c] = ap[i]
-    return (mp, mr, map50, map, *(loss.cpu() / len(dataloader)).tolist()), maps, t
+    return iou
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='test.py')
-    parser.add_argument('--weights', nargs='+', type=str, default='yolov5s.pt', help='model.pt path(s)')
-    parser.add_argument('--data', type=str, default='data/coco128.yaml', help='*.data path')
-    parser.add_argument('--batch-size', type=int, default=32, help='size of each image batch')
-    parser.add_argument('--img-size', type=int, default=1280, help='inference size (pixels)')
-    parser.add_argument('--conf-thres', type=float, default=0.001, help='object confidence threshold')
-    parser.add_argument('--iou-thres', type=float, default=0.6, help='IOU threshold for NMS')
-    parser.add_argument('--task', default='val', help='train, val, test, speed or study')
-    parser.add_argument('--device', default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
-    parser.add_argument('--single-cls', action='store_true', help='treat as single-class dataset')
-    parser.add_argument('--augment', action='store_true', help='augmented inference')
-    parser.add_argument('--verbose', action='store_true', help='report mAP by class')
-    parser.add_argument('--save-txt', action='store_true', help='save results to *.txt')
-    parser.add_argument('--save-hybrid', action='store_true', help='save label+prediction hybrid results to *.txt')
-    parser.add_argument('--save-conf', action='store_true', help='save confidences in --save-txt labels')
-    parser.add_argument('--save-json', action='store_true', help='save a cocoapi-compatible JSON results file')
-    parser.add_argument('--project', default='runs/test', help='save to project/name')
-    parser.add_argument('--name', default='exp', help='save to project/name')
-    parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
-    opt = parser.parse_args()
-    opt.save_json |= opt.data.endswith('coco.yaml')
-    opt.data = check_file(opt.data)  # check file
-    print(opt)
-    check_requirements()
+def getbounds(fgMask):
+    #time_start=time.time()
+    line = cv.getStructuringElement(cv.MORPH_RECT, (7, 7), (-1, -1))  # 返回指定形状和尺寸的结构
+    fgMask = cv.morphologyEx(fgMask, cv.MORPH_OPEN, line)
 
-    if opt.task in ('train', 'val', 'test'):  # run normally
-        test(opt.data,
-             opt.weights,
-             opt.batch_size,
-             opt.img_size,
-             opt.conf_thres,
-             opt.iou_thres,
-             opt.save_json,
-             opt.single_cls,
-             opt.augment,
-             opt.verbose,
-             save_txt=opt.save_txt | opt.save_hybrid,
-             save_hybrid=opt.save_hybrid,
-             save_conf=opt.save_conf,
-             )
+    contours, hierarchy = cv.findContours(fgMask, cv.RETR_EXTERNAL,
+                                          cv.CHAIN_APPROX_SIMPLE)
+    bounds = nms_cnts(contours, fgMask, 5)
 
-    elif opt.task == 'speed':  # speed benchmarks
-        for w in opt.weights:
-            test(opt.data, w, opt.batch_size, opt.img_size, 0.25, 0.45, save_json=False, plots=False)
+    deletelist = []
+    final_bounds = []
+    n = 0
 
-    elif opt.task == 'study':  # run over a range of settings and save/plot
-        # python test.py --task study --data coco.yaml --iou 0.7 --weights yolov5s.pt yolov5m.pt yolov5l.pt yolov5x.pt
-        x = list(range(256, 1536 + 128, 128))  # x axis (image sizes)
-        for w in opt.weights:
-            f = f'study_{Path(opt.data).stem}_{Path(w).stem}.txt'  # filename to save to
-            y = []  # y axis
-            for i in x:  # img-size
-                print(f'\nRunning {f} point {i}...')
-                r, _, t = test(opt.data, w, opt.batch_size, i, opt.conf_thres, opt.iou_thres, opt.save_json,
-                               plots=False)
-                y.append(r + t)  # results and times
-            np.savetxt(f, y, fmt='%10.4g')  # save
-        os.system('zip -r study.zip study_*.txt')
-        plot_study_txt(x=x)  # plot
+    final_bounds = np.array(bounds)
+    if final_bounds.size > 0:
+        final_bounds[:, 2] = final_bounds[:, 0] + final_bounds[:, 2]
+        final_bounds[:, 3] = final_bounds[:, 1] + final_bounds[:, 3]
+
+    return final_bounds
+
+
+def precision(framenum, line, box):
+    # print(box)
+    # print('\n')
+    true_box = []
+    global tp, TP, fp, FP, iou_threshold, FN, fn
+    if not os.path.exists(args.dataset + line + '/Annotations/' +
+                          "frame{}.xml".format(framenum)):
+        boxA = [0, 0, 0, 0]
+        fp = fp + len(box)
+        FP = FP + len(box)
+    else:
+        xml_file = xmldom.parse(args.dataset + line + '/Annotations/' +
+                                "frame{}.xml".format(framenum))
+        eles = xml_file.documentElement
+        gt_score = np.ones(len(eles.getElementsByTagName("xmin")))
+        for boxB in box:
+            score = 0
+            for i in range(len(eles.getElementsByTagName("xmin"))):
+                xmin = eles.getElementsByTagName("xmin")[i].firstChild.data
+                ymin = eles.getElementsByTagName("ymin")[i].firstChild.data
+                xmax = eles.getElementsByTagName("xmax")[i].firstChild.data
+                ymax = eles.getElementsByTagName("ymax")[i].firstChild.data
+                boxA = [xmin, ymin, xmax, ymax]
+                if (len(boxA) and len(boxB)
+                        and IOU(boxA, boxB) >= iou_threshold):
+                    score = 1
+                    gt_score[i] = 0
+                    true_box.append(boxB)
+
+            if score == 1:
+                tp = tp + 1
+                TP = TP + 1
+            else:
+                fp = fp + 1
+                FP = FP + 1
+        # if tp > len(eles.getElementsByTagName("xmin")):
+        #     fn = 0
+        # else:
+        #     fn = len(eles.getElementsByTagName("xmin")) - tp
+        fn = fn + sum(gt_score)
+        FN = FN + sum(gt_score)
+    return true_box
+
+start_time = T.strftime('%Y-%m-%d_%H:%M:%S', T.localtime(T.time()))
+dataset_root = "./data/labels"
+
+f = open(args.result_txt, 'w')
+iou_threshold = 0.3
+TP = 0.00
+FP = 0.00
+ALL = 0.00
+begin = 0
+end = 0
+tro = 0
+FN = 0
+TRO = 0
+TIME = 0
+FRAMENUM = 0
+pattern = "video"
+iou_thres = 0.3
+
+# weights="/mnt/data1/ghh/yolov5/runs/train/exp18/weights/last.pt"
+weights="/mnt/data1/ghh/yolov5/runs/train/exp29/last.pt"
+data=ROOT / 'data/paowu.yaml'
+imgsz=(960, 960)
+conf_thres=0.4
+box_color = (0,0,255) 
+
+#加载yolo模型
+device='0'
+device = select_device(device)
+model = DetectMultiBackend(weights, device=device, dnn=False, data=data, fp16=False)
+stride, names, pt = model.stride, model.names, model.pt
+imgsz = check_img_size(imgsz, s=stride)  # check image size
+bs = 1
+model.warmup(imgsz=(1 if pt else bs, 6, *imgsz))  # warmup
+
+with open(args.val) as f1:
+    statistics_TP = np.zeros((5, 17))
+    statistics_FP = np.zeros((5, 17))
+    statistics_FN = np.zeros((5, 17))
+    statistics_TRO = np.zeros((5, 17))
+    statistics_num = np.zeros((5, 17))
+    for line in f1:
+        timelist = []
+        
+        line = re.sub(pattern, "", line.rstrip())
+        input = args.video + "{}.mp4".format(line)
+        filename = args.dataset + line
+
+        tp = 0.00
+        fp = 0.00
+        fn = 0.00
+        framenum = 0
+
+        if args.algo == 'MOG2':
+            backSub = cv.createBackgroundSubtractorMOG2(300, 100, False)
+        elif args.algo == 'GSOC':
+            backSub = cv.bgsegm.createBackgroundSubtractorGSOC(300, 100)
+        elif args.algo == 'LSBP':
+            backSub = cv.bgsegm.createBackgroundSubtractorLSBP()
+        elif args.algo == 'GMG':
+            backSub = cv.bgsegm.createBackgroundSubtractorGMG()
+            backSub.setNumFrames(5)
+            backSub.setUpdateBackgroundModel(True)
+        elif args.algo == 'CNT':
+            backSub = cv.bgsegm.createBackgroundSubtractorCNT()
+            backSub.setIsParallel(True)
+            backSub.setUseHistory(True)
+            backSub.setMinPixelStability(1)
+            backSub.setMaxPixelStability(4)
+        elif args.algo == 'MOG':
+            backSub = cv.bgsegm.createBackgroundSubtractorMOG()
+        elif args.algo == 'KNN':
+            backSub = cv.createBackgroundSubtractorKNN(300, 100, False)
+        else:
+            print("Wrong algo")
+            sys.exit()
+
+        capture = cv.VideoCapture(input)
+        initial = False
+
+        # 使用yolov5获得初始位置
+        start_time = T.time()
+        while True:
+            rval, frame = capture.read()
+            if frame is None:
+                break
+
+            fgMask = backSub.apply(frame)
+            fgMask = cv.cvtColor(fgMask, cv.COLOR_GRAY2RGB)
+
+
+
+            frame1=frame
+            frame2=frame
+            framenum = framenum + 1
+            img = letterbox(frame, imgsz, stride=stride, auto=True)[0]
+            mask = letterbox(fgMask, imgsz, stride=stride, auto=True)[0]
+            # Convert
+            img = np.concatenate((img, mask), axis=2)
+            mask = mask.transpose((2, 0, 1))[::-1]
+            img = img.transpose((2, 0, 1))[::-1]  # HWC to CHW, BGR to RGB
+            mask = np.ascontiguousarray(mask)
+            img = np.ascontiguousarray(img)
+            ma = mask
+            im = img
+            ma = torch.from_numpy(ma).to(device)
+            im = torch.from_numpy(im).to(device)
+            ma = ma.half() if model.fp16 else ma.float()
+            im = im.half() if model.fp16 else im.float()  # uint8 to fp16/32
+            ma /= 255
+            im /= 255  # 0 - 255 to 0.0 - 1.0
+            if len(im.shape) == 3:
+                im = im[None]  # expand for batch dim 
+                ma = ma[None]
+
+            #example shape of img(torch.Size([1, 3, 384, 640]))
+            # slice_img = []
+
+            
+            
+            pred = model(im, ma, augment=False, visualize=False)
+            # pred shape[1, x, 6]
+            pred = non_max_suppression(pred, conf_thres, iou_thres, classes=None, agnostic=False, max_det=50)
+
+            # import ipdb
+            bounds = []
+            for i, det in enumerate(pred):
+                im0 = frame.copy()
+                gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]
+
+                if len(det):
+                    initial = True
+                    det[:, :4] = scale_coords(im.shape[2:], det[:, :4], im0.shape).round()
+
+                    print(det)
+                    print("1")
+
+                    for *xyxy, conf, cls in reversed(det):
+                        bounds.append((torch.tensor(xyxy).view(1, 4)).view(-1).tolist())
+
+            # for box in bounds:
+            #     frame1 = cv.rectangle(frame1, (int(box[0]),int(box[1])), (int(box[2]),int(box[3])), color=box_color, thickness=3)
+            #     visual_file_root = os.path.join("/mnt/data1/ghh/yolov5/visual","{}".format(line))
+            #     if not os.path.exists(visual_file_root):
+            #         os.mkdir(visual_file_root)
+            #     visual_file = os.path.join(visual_file_root,"detframe{}.jpg".format(framenum))
+            #     cv.imwrite(visual_file, frame1)
+
+            true = precision(framenum, line, bounds)
+            if tp > 0:
+                timelist.append(framenum)
+            if len(true):
+                for true_box in true:
+                    frame2 = cv.rectangle(frame2, (int(true_box[0]),int(true_box[1])), (int(true_box[2]),int(true_box[3])), color=box_color, thickness=3)
+                visual_file_root = os.path.join("/mnt/data1/ghh/yolov5/video","{}".format(line))
+                if not os.path.exists(visual_file_root):
+                    os.mkdir(visual_file_root)
+                visual_file = os.path.join(visual_file_root,"yoloframe{}.jpg".format(framenum))
+                cv.imwrite(visual_file, frame2)
+            else:
+                visual_file_root = os.path.join("/mnt/data1/ghh/yolov5/video","{}".format(line))
+                if not os.path.exists(visual_file_root):
+                    os.mkdir(visual_file_root)
+                visual_file = os.path.join(visual_file_root,"yoloframe{}.jpg".format(framenum))
+                cv.imwrite(visual_file, frame)
+
+            if tp > 0:
+                timelist.append(framenum)
+
+        if len(timelist) == 0:
+            begin = 0
+            end = 0
+        else:
+            end = timelist[-1]
+            begin = timelist[0]
+        text = linecache.getline(args.time, int(line))
+        gt_time = []
+        result = re.finditer(",", text)
+        for i in result:
+            gt_time.append(i.span()[0])
+        num = text[0:gt_time[0]]
+        if int(num) != int(line):
+            break
+        gt_begin = int(text[gt_time[0] + 1:gt_time[1]])
+        gt_end = int(text[gt_time[1] + 1:-1])
+
+        if end == 0:
+            tro = 0
+        elif begin > gt_end or end < gt_begin:
+            tro = 0
+        else:
+            tro = (min(gt_end, end) - max(gt_begin, begin) +
+                   1) / (max(gt_end, end) - min(gt_begin, begin) + 1)
+        Class = int(linecache.getline(args.Class, int(line)).strip("\n")) - 1
+        label = [Class]
+        for i in range(1):
+            j = label[i]
+            statistics_TP[i][j] = statistics_TP[i][j] + tp
+            statistics_FP[i][j] = statistics_FP[i][j] + fp
+            statistics_FN[i][j] = statistics_FN[i][j] + fn
+            statistics_TRO[i][j] = statistics_TRO[i][j] + tro
+            statistics_num[i][j] = statistics_num[i][j] + 1
+        TRO = TRO + tro
+        ALL = ALL + 1
+
+        f.write('class%d_tp%d_fp%d_fn%d\n' %(Class,tp,fp,fn))
+        if (tp + fp) > 0:
+            p = tp /(tp + fp)
+            f.write(line +'precision is {:.6f}\n'.format(p))
+        else:
+            p = 0
+            f.write(num + 'precision is 0\n')
+
+        if (tp + fn) > 0:
+            r = tp /(tp + fn)
+            f.write(line +'recall is {:.6f}\n'.format(r))
+        else:
+            r = 0
+            f.write(num + 'recall is 0\n')
+
+        if (p + r) > 0:
+            measure = 2 * p * r /(p + r)
+            f.write(line +'F-measure is {:.6f}\n'.format(measure))
+        else:
+            f.write(num + 'F-measure is 0\n')
+        f.write(line +'TRO is {:.6f}\n\n'.format(tro))
+        print("{}done".format(line))
+        end_time = T.time()
+        FRAMENUM = FRAMENUM + framenum
+        TIME = end_time - start_time + TIME
+
+if ( TP + FP ) > 0:
+    Precision = (TP / (TP + FP))
+else:
+    Precision = 0
+
+if ( TP + FN ) > 0:
+    Recall = (TP / (TP + FN))
+else:
+    Recall = 0
+
+if Precision==0 and Recall==0:
+    F_measure=0
+else:
+    F_measure = (2 * Precision * Recall) / (Precision + Recall)
+f.write('%s:precision is %f\n' % (args.algo, Precision))
+f.write('%s:recall is %f\n' % (args.algo, Recall))
+f.write("%s:F-measure is %f\n" % (args.algo, F_measure))
+f.write('%s:tro is %f\n' % (args.algo, (TRO / ALL)))
+f.write('%s:fps is %f\n\n' % (args.algo, (FRAMENUM / TIME)))
+statistics_P = np.zeros((5, 17))
+statistics_R = np.zeros((5, 17))
+statistics_F = np.zeros((5, 17))
+statistics_T = np.zeros((5, 17))
+for i in range(1):
+    for j in range(17):
+        if statistics_TP[i][j] + statistics_FP[i][j] == 0:
+            P = 0
+        else:
+            P = (statistics_TP[i][j] / (statistics_TP[i][j] + statistics_FP[i][j]))
+        statistics_P[i][j] = P
+        f.write('%s:[%s][%s]precision of is %f\n' % (args.algo, i, j, P))
+
+for i in range(1):
+    for j in range(17):
+        if statistics_TP[i][j] + statistics_FN[i][j] == 0:
+            R = 0
+        else:
+            R = (statistics_TP[i][j] / (statistics_TP[i][j] + statistics_FN[i][j]))
+        statistics_R[i][j] = R
+        f.write('%s:[%s][%s]recall of is %f\n' % (args.algo, i, j, R))
+
+for i in range(1):
+    for j in range(17):
+        if statistics_TP[i][j] + statistics_FN[i][j] == 0:
+            R = 0
+        else:
+            R = (statistics_TP[i][j] / (statistics_TP[i][j] + statistics_FN[i][j]))
+        if statistics_TP[i][j] + statistics_FP[i][j] == 0:
+            P = 0
+        else:
+            P = (statistics_TP[i][j] / (statistics_TP[i][j] + statistics_FP[i][j]))
+        if P + R == 0:
+            F = 0
+        else:
+            F = (2 * P * R) / (P + R)
+        statistics_F[i][j] = F
+        f.write("%s:[%s][%s]F-measure of is %f\n" % (args.algo, i, j, F))
+
+for i in range(1):
+    for j in range(17):
+        if statistics_num[i][j] == 0:
+            T_1 = 0
+        else:
+            T_1 = statistics_TRO[i][j] / statistics_num[i][j]
+        statistics_T[i][j] = T_1
+        f.write('%s:[%s][%s]tro of is %f\n' % (args.algo, i, j, T_1))
+
+end_time = T.strftime('%Y-%m-%d %H:%M:%S', T.localtime(T.time()))

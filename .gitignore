@@ -26,6 +26,7 @@
 storage.googleapis.com
 runs/*
 data/*
+!data/paowu.yaml
 !data/images/zidane.jpg
 !data/images/bus.jpg
 !data/coco.names
@@ -256,3 +257,5 @@ visual/
 runs/
 wandb/
 .pytest_cache
+results/
+
