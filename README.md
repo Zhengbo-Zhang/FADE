@@ -7,20 +7,20 @@ Our dataset, annotation instructions, dataset documentation and intended uses ar
 
 
 
-## Our method YLOV5-MOA
+### Our method YOLOv5-MOA
 
-### how to train 
+#### how to train 
 1. download the dataset from [here](http://tuzhigang.cn/dataset/FADE.html)
 2. unzip the dataset and put it in the `dataset` folder
 3. run `python train.py` to train the model with the default parameters defined in train.py. the usage is as same as original yolov5 method's usage. you can also change the parameters by yourself.
 
-### how to test
+#### how to test
 
 1. create a file named `test.txt`, and put the path of the test videos in it
 2. run `python test.py --val test.txt`
 3. the results will be saved in the `video` folder
 
-## Experiment
+####Experiment
 CPU: Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz
 GPU: GeForce RTX 3090
 ### BSUV-NET-2.0
