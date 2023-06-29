@@ -2,7 +2,7 @@
 
 Our dataset, annotation instructions, dataset documentation and intended uses are published and you can download our dataset from [here](http://tuzhigang.cn/dataset/FADE.html)
 
-[![example video](https://img.youtube.com/vi/aAf_z0neDDk/maxresdefault.jpg)](https://youtu.be/aAf_z0neDDk)
+![example video](assets/812.gif)
 
 
 
