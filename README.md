@@ -13,7 +13,7 @@ Our dataset, annotation instructions, dataset documentation and intended uses ar
 ### YOLOv5-MOA
 
 #### how to train 
-1. download the dataset from [here](http://tuzhigang.cn/dataset/FADE.html)
+1. download the dataset from [here](http://tuzhigang.cn/datasets/fade/FADE.html)
 2. unzip the dataset and put it in the `dataset` folder
 3. run `python train.py` to train the model with the default parameters defined in train.py. the usage is as same as original yolov5 method's usage. you can also change the parameters by yourself.
 
