@@ -20,7 +20,7 @@ Our dataset, annotation instructions, dataset documentation and intended uses ar
 #### how to test
 
 1. create a file named `test.txt`, and put the path of the test videos in it
-2. run `python test.py --val test.txt` and our pre-trained weight `last.pt` is provided in the `weight` folder.
+2. run `python test.py --val test.txt` and our pre-trained weight `last.pt` is provided in the `weight` folder
 3. the results will be saved in the `video` folder
 
 #### Experiment
