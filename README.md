@@ -20,7 +20,7 @@ Our dataset, annotation instructions, dataset documentation and intended uses ar
 #### how to test
 
 1. create a file named `test.txt`, and put the path of the test videos in it
-2. run `python test.py --val test.txt` and our pre-trained weight can be downloaded from [Google Drive](https://drive.google.com/file/d/1pI8PJ9BSwOinF7tEqqj3JZeNDOnC2--9/view?usp=sharing) or [Baidu Yun](https://pan.baidu.com/s/1MklhfAT4oigkrrB78AARGw?pwd=shyw)
+2. run `python test.py --val test.txt` and our pre-trained weight can be downloaded from [Google Drive](https://drive.google.com/file/d/1pI8PJ9BSwOinF7tEqqj3JZeNDOnC2--9/view?usp=sharing) or [Baidu Yun](https://pan.baidu.com/s/1MklhfAT4oigkrrB78AARGw?pwd=shyw).
 3. the results will be saved in the `video` folder
 
 #### Experiment
